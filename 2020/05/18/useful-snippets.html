@@ -1,0 +1,57 @@
+<h1 id="snippets">Snippets</h1>
+
+<h2 id="logging-tensorflow-data-into-a-directory-within-cwd">Logging TensorFlow Data into a directory within cwd</h2>
+
+<p>#create directory first</p>
+
+<p>import os
+log_dir = os.path.join(os.getcwd(), “logs”,”log1”)
+print(log_dir)</p>
+
+<p>writer = tf.summary.FileWriter(log_dir)
+writer.add_graph(sess.graph) #sess is the current Tensorflow session</p>
+
+<h2 id="delete-files-older-than-x-days">Delete Files older than x days</h2>
+
+<p>’’’
+find /path/to/files/ -type f -name ‘*.jpg’ -mtime +30 -exec rm {} \;
+‘’’
+First part is the path where your files are located. Don’t use wildcard * if you have a lot of files because you will get Argument list too long error.
+Second part -type is the file type f stands for files
+Third part -name is limiting *,jpg files
+Fourth part -mtime gets how many days the files older then will be listed. +30 is for files older then 30 days.
+Fifth part -exec executes a command. In this case rm is the command, {} gets the filelist and \; closes the command</p>
+
+<h2 id="normalise-columns-in-a-dataframe">Normalise columns in a dataframe</h2>
+<p>’’’
+diabetes[cols_to_norm] = diabetes[cols_to_norm].apply(lambda x: (x - x.min())/(x.max()-x.min()))
+‘’’</p>
+
+<h2 id="shallow-cloning-of-git-repo">Shallow cloning of git repo</h2>
+
+<p>git clone –depth=1 <git.repo></git.repo></p>
+
+<h2 id="js-timestamp">JS Timestamp</h2>
+<p>var ts = Math.round((new Date()).getTime() / 1000);</p>
+
+<h2 id="create-virtual-environment-with-virtualenv">Create Virtual Environment with virtualenv</h2>
+<p>virtualenv name_of_venv
+venv\Scripts\activate</p>
+
+<h2 id="bash-search-text-in-files">Bash search text in files</h2>
+<p>grep -rnw ‘/path/to/somewhere/’ -e ‘pattern’
+-r or -R is recursive,
+-n is line number, and
+-w stands for match the whole word.
+-l (lower-case L) can be added to just give the file name of matching files.</p>
+
+<h2 id="vim-paste-to-command-line">Vim Paste to Command Line</h2>
+<p>CTRL+R dann * oder “</p>
+
+<h2 id="ps-report-venv">PS Report Venv</h2>
+<p>source ~/.virtualenvs/papstar_virtual_env/bin/activate</p>
+
+<h2 id="symbolic-links-on-folders-in-windows-command-prompt">Symbolic Links on folders in windows command prompt</h2>
+<pre><code class="language-cmd">mklink /J "C:\Link To Folder" "C:\Users\Name\Original Folder"
+</code></pre>
+<p><a href="https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/">Source</a></p>

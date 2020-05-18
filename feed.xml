@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-18T11:14:51-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Fastpages Notebook Blog Post</title><link href="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html" rel="alternate" type="text/html" title="Fastpages Notebook Blog Post" /><published>2020-02-20T00:00:00-06:00</published><updated>2020-02-20T00:00:00-06:00</updated><id>https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html">&lt;!--
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-18T11:48:23-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Useful Snippets</title><link href="https://tamahagane.github.io/huppertz-consulting/2020/05/18/useful-snippets.html" rel="alternate" type="text/html" title="Useful Snippets" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/2020/05/18/useful-snippets</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/2020/05/18/useful-snippets.html">&lt;h1 id=&quot;snippets&quot;&gt;Snippets&lt;/h1&gt;
+
+&lt;h2 id=&quot;logging-tensorflow-data-into-a-directory-within-cwd&quot;&gt;Logging TensorFlow Data into a directory within cwd&lt;/h2&gt;
+
+&lt;p&gt;#create directory first&lt;/p&gt;
+
+&lt;p&gt;import os
+log_dir = os.path.join(os.getcwd(), “logs”,”log1”)
+print(log_dir)&lt;/p&gt;
+
+&lt;p&gt;writer = tf.summary.FileWriter(log_dir)
+writer.add_graph(sess.graph) #sess is the current Tensorflow session&lt;/p&gt;
+
+&lt;h2 id=&quot;delete-files-older-than-x-days&quot;&gt;Delete Files older than x days&lt;/h2&gt;
+
+&lt;p&gt;’’’
+find /path/to/files/ -type f -name ‘*.jpg’ -mtime +30 -exec rm {} \;
+‘’’
+First part is the path where your files are located. Don’t use wildcard * if you have a lot of files because you will get Argument list too long error.
+Second part -type is the file type f stands for files
+Third part -name is limiting *,jpg files
+Fourth part -mtime gets how many days the files older then will be listed. +30 is for files older then 30 days.
+Fifth part -exec executes a command. In this case rm is the command, {} gets the filelist and \; closes the command&lt;/p&gt;
+
+&lt;h2 id=&quot;normalise-columns-in-a-dataframe&quot;&gt;Normalise columns in a dataframe&lt;/h2&gt;
+&lt;p&gt;’’’
+diabetes[cols_to_norm] = diabetes[cols_to_norm].apply(lambda x: (x - x.min())/(x.max()-x.min()))
+‘’’&lt;/p&gt;
+
+&lt;h2 id=&quot;shallow-cloning-of-git-repo&quot;&gt;Shallow cloning of git repo&lt;/h2&gt;
+
+&lt;p&gt;git clone –depth=1 &lt;git.repo&gt;&lt;/git.repo&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;js-timestamp&quot;&gt;JS Timestamp&lt;/h2&gt;
+&lt;p&gt;var ts = Math.round((new Date()).getTime() / 1000);&lt;/p&gt;
+
+&lt;h2 id=&quot;create-virtual-environment-with-virtualenv&quot;&gt;Create Virtual Environment with virtualenv&lt;/h2&gt;
+&lt;p&gt;virtualenv name_of_venv
+venv\Scripts\activate&lt;/p&gt;
+
+&lt;h2 id=&quot;bash-search-text-in-files&quot;&gt;Bash search text in files&lt;/h2&gt;
+&lt;p&gt;grep -rnw ‘/path/to/somewhere/’ -e ‘pattern’
+-r or -R is recursive,
+-n is line number, and
+-w stands for match the whole word.
+-l (lower-case L) can be added to just give the file name of matching files.&lt;/p&gt;
+
+&lt;h2 id=&quot;vim-paste-to-command-line&quot;&gt;Vim Paste to Command Line&lt;/h2&gt;
+&lt;p&gt;CTRL+R dann * oder “&lt;/p&gt;
+
+&lt;h2 id=&quot;ps-report-venv&quot;&gt;PS Report Venv&lt;/h2&gt;
+&lt;p&gt;source ~/.virtualenvs/papstar_virtual_env/bin/activate&lt;/p&gt;
+
+&lt;h2 id=&quot;symbolic-links-on-folders-in-windows-command-prompt&quot;&gt;Symbolic Links on folders in windows command prompt&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cmd&quot;&gt;mklink /J &quot;C:\Link To Folder&quot; &quot;C:\Users\Name\Original Folder&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Snippets</summary></entry><entry><title type="html">Fastpages Notebook Blog Post</title><link href="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html" rel="alternate" type="text/html" title="Fastpages Notebook Blog Post" /><published>2020-02-20T00:00:00-06:00</published><updated>2020-02-20T00:00:00-06:00</updated><id>https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
