@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Raspberry Pi - Setup and First Steps | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Raspberry Pi - Setup and First Steps" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to get a RasPi started" />
+<meta property="og:description" content="How to get a RasPi started" />
+<link rel="canonical" href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" />
+<meta property="og:url" content="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"How to get a RasPi started","@type":"BlogPosting","headline":"Raspberry Pi - Setup and First Steps","dateModified":"2020-05-18T00:00:00-05:00","datePublished":"2020-05-18T00:00:00-05:00","url":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/huppertz-consulting/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tamahagane.github.io/huppertz-consulting/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/huppertz-consulting/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Raspberry Pi - Setup and First Steps | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Raspberry Pi - Setup and First Steps" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to get a RasPi started" />
+<meta property="og:description" content="How to get a RasPi started" />
+<link rel="canonical" href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" />
+<meta property="og:url" content="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"How to get a RasPi started","@type":"BlogPosting","headline":"Raspberry Pi - Setup and First Steps","dateModified":"2020-05-18T00:00:00-05:00","datePublished":"2020-05-18T00:00:00-05:00","url":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://tamahagane.github.io/huppertz-consulting/feed.xml" title="fastpages" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/huppertz-consulting/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/huppertz-consulting/about/">About Me</a><a class="page-link" href="/huppertz-consulting/search/">Search</a><a class="page-link" href="/huppertz-consulting/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Raspberry Pi - Setup and First Steps</h1><p class="page-description">How to get a RasPi started</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-18T00:00:00-05:00" itemprop="datePublished">
+        May 18, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#tooling">tooling</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#javascript">javascript</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="raspberry-pi">Raspberry Pi</h1>
+
+<h2 id="command-line-configuration">Command-Line Configuration</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>raspi-config 
+</code></pre></div></div>
+<h2 id="restart">Restart</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>shutdown <span class="nt">-r</span> now
+</code></pre></div></div>
+
+<h2 id="get-ip-address">Get IP address</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig
+</code></pre></div></div>
+
+<h2 id="install-jenkins-on-raspi">Install Jenkins on RasPi</h2>
+
+<ul>
+  <li><a href="https://t2informatik.de/blog/softwareentwicklung/ci-cd-pipeline-auf-einem-raspberry-pi-teil-3/">CI/CD Pipeline auf einem Raspberry Pi – Teil 3</a></li>
+</ul>
+
+<h2 id="change-swap-file-size">Change Swap-File Size</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /etc/init.d/dphys-swapfile stop
+<span class="nb">sudo </span>nano /etc/dphys-swapfile
+<span class="nb">sudo</span> /etc/init.d/dphys-swapfile start
+</code></pre></div></div>
+
+<h2 id="re-issue-ssh-keys">Re-issue ssh keys</h2>
+
+<p>Delete key-files and re-create them</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> /etc/ssh/ssh_host_<span class="k">*</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>dpkg-reconfigure openssh-server
+</code></pre></div></div>
+
+<p>Invalidate keys on client side if successfully connected before:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-R</span> <span class="o">{</span>ip-address of raspi<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="show-processes">Show processes</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | less
+</code></pre></div></div>
+
+<p>Unresponsive processess can then be stopped via</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> 
+</code></pre></div></div>
+
+<h2 id="running-a-python-script-automatically-at-startup">Running a Python Script Automatically at Startup</h2>
+
+<p>Because the Pi can act as a standalone appliance, a common
+question is how to launch a Python script automatically when
+the Pi boots up. The answer is to add an entry to the /etc/
+rc.local file, which is used for exactly this in the Linux world.</p>
+
+<p>Just edit the file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/rc.local
+</code></pre></div></div>
+<p>and add a command to execute your script between the commented section and exit 0. Something like:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python /home/pi/foo.py&amp;
+</code></pre></div></div>
+<p>The ampersand at the end will run the script as a background
+process, which will allow all the other services of the Pi to continue booting up.</p>
+
+<h2 id="autostart-desktop">Autostart Desktop</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> /home/pi/.config/autostart
+nano /home/pi/.config/autostart/clock.desktop
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+Type=Application
+Name=Clock
+Exec=/usr/bin/python3 /home/pi/clock.py
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+Type=Application
+Name=airflow-webserver
+Exec=xterm -hold -e '/home/pi/.local/bin/airflow webserver -p 8080'
+</code></pre></div></div>
+
+<h2 id="onscreen-keyboard">OnScreen Keyboard</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>at-spi2-core florence
+</code></pre></div></div>
+
+<h2 id="disable-screensaver">Disable Screensaver</h2>
+
+<p>The easiest way to disable screen blanking in the Raspbian GUI is to install xscreensaver then configure it to disabled.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>xscreensaver
+</code></pre></div></div>
+<p>In the [Display Mode] tab, set like this - Mode: [Disable Screen Saver]
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=57552cd">Source</a></p>
+
+<h2 id="install-rss-reader">Install RSS-Reader</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>quiterss
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>akregator
+</code></pre></div></div>
+
+<h2 id="ssh-tips--tricks">ssh tips &amp; tricks</h2>
+<p>https://smallstep.com/blog/ssh-tricks-and-tips/</p>
+
+<h2 id="starting-up-a-raspi-zero-w-without-a-screen">Starting up a Raspi Zero W without a screen</h2>
+
+<p>SSH aktivieren: 
+Um den SSH-Zugriff zu aktivieren, erstellen Sie im Verzeichnis der MicroSD-Karte (/boot) eine leere Datei mit dem Namen “ssh” (ohne Dateierweiterung).</p>
+
+<p>WLAN aktivieren: 
+Um den WLAN-Zugriff zu aktivieren, erstellen Sie im Verzeichnis der MicroSD-Karte (/boot) eine Datei mit dem Namen “wpa_supplicant.conf” (die Dateierweiterung hier ist .conf – kein .txt dahinter stellen, sonst funktioniert es nicht) mit folgendem Inhalt:</p>
+
+<p>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1</p>
+
+<p>network={
+ssid=”<Ihr_SSID>"
+psk="<Ihr_Passwort>"
+}
+[Source](https://braspi.de/blogs/braspi-blog/raspberry-pi-ersteinrichtung-ohne-monitor-und-tastatur)</Ihr_Passwort></Ihr_SSID></p>
+
+<h2 id="installing-pi-hole">Installing Pi-Hole</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://install.pi-hole.net | bash
+</code></pre></div></div>
+<p><a href="https://www.heise.de/tipps-tricks/Pi-Hole-auf-dem-Raspberry-Pi-einrichten-so-geht-s-4358553.html">Source</a></p>
+
+  </div><a class="u-url" href="/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/huppertz-consulting/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/huppertz-consulting/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

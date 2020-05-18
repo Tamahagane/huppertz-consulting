@@ -115,7 +115,10 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <h1 id="useful-code-snippets">Useful Code Snippets</h1>
 
-<h2 id="logging-tensorflow-data-into-a-directory-within-cwd">Logging TensorFlow Data into a directory within cwd</h2>
+<h2 id="tensorflow">TensorFlow</h2>
+
+<h3 id="logging-tensorflow-data-into-a-directory-within-cwd">Logging TensorFlow Data into a directory within cwd</h3>
+<hr />
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#create directory first
 </span>
@@ -127,51 +130,65 @@ window.onload = wrap_img;
 <span class="n">writer</span><span class="o">.</span><span class="n">add_graph</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span> <span class="c1">#sess is the current Tensorflow session
 </span></code></pre></div></div>
 
-<h2 id="delete-files-older-than-x-days">Delete Files older than x days</h2>
+<h2 id="bash">bash</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'''
-find /path/to/files/ -type f -name '</span><span class="k">*</span>.jpg<span class="s1">' -mtime +30 -exec rm {} \;
-'''</span>
-First part is the path where your files are located. Don’t use wildcard <span class="k">*</span> <span class="k">if </span>you have a lot of files because you will get Argument list too long error.
-Second part <span class="nt">-type</span> is the file <span class="nb">type </span>f stands <span class="k">for </span>files
-Third part <span class="nt">-name</span> is limiting <span class="k">*</span>,jpg files
-Fourth part <span class="nt">-mtime</span> gets how many days the files older <span class="k">then </span>will be listed. +30 is <span class="k">for </span>files older <span class="k">then </span>30 days.
-Fifth part <span class="nt">-exec</span> executes a command. In this <span class="k">case</span> <span class="nb">rm </span>is the <span class="nb">command</span>, <span class="o">{}</span> gets the filelist and <span class="se">\;</span> closes the <span class="nb">command</span>
+<h3 id="delete-files-older-than-x-days">Delete Files older than x days</h3>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find /path/to/files/ <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s1">'*.jpg'</span> <span class="nt">-mtime</span> +30 <span class="nt">-exec</span> <span class="nb">rm</span> <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></div></div>
+<p>First part is the path where your files are located. Don’t use wildcard * if you have a lot of files because you will get Argument list too long error.
+Second part -type is the file type f stands for files
+Third part -name is limiting *,jpg files
+Fourth part -mtime gets how many days the files older then will be listed. +30 is for files older then 30 days.
+Fifth part -exec executes a command. In this case rm is the command, {} gets the filelist and \; closes the command</p>
 
-<h2 id="normalise-columns-in-a-dataframe">Normalise columns in a dataframe</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">()))</span>
-</code></pre></div></div>
-
-<h2 id="shallow-cloning-of-git-repo">Shallow cloning of git repo</h2>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 &lt;git.repo&gt;
-</code></pre></div></div>
-
-<h2 id="js-timestamp">JS Timestamp</h2>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ts</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
-</code></pre></div></div>
-
-<h2 id="create-virtual-environment-with-virtualenv">Create Virtual Environment with virtualenv</h2>
+<h3 id="create-virtual-environment-with-virtualenv">Create Virtual Environment with virtualenv</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv name_of_venv
 <span class="nb">source </span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 </code></pre></div></div>
 
-<h2 id="bash-search-text-in-files">Bash search text in files</h2>
+<h3 id="bash-search-text-in-files">Bash search text in files</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="s1">'/path/to/somewhere/'</span> <span class="nt">-e</span> <span class="s1">'pattern'</span>
 <span class="nt">-r</span> or <span class="nt">-R</span> is recursive,
 <span class="nt">-n</span> is line number, and
 <span class="nt">-w</span> stands <span class="k">for </span>match the whole word.
 <span class="nt">-l</span> <span class="o">(</span>lower-case L<span class="o">)</span> can be added to just give the file name of matching files.
 </code></pre></div></div>
-<p>Vim Paste to Command Line
-————————-
-CTRL+R dann * oder “</p>
 
-<h2 id="symbolic-links-on-folders-in-windows-command-prompt">Symbolic Links on folders in windows command prompt</h2>
+<h2 id="pandas">pandas</h2>
+
+<h3 id="normalise-columns-in-a-dataframe">Normalise columns in a dataframe</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">()))</span>
+</code></pre></div></div>
+
+<h2 id="git">git</h2>
+
+<h3 id="shallow-cloning-of-git-repo">Shallow cloning of git repo</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 &lt;git.repo&gt;
+</code></pre></div></div>
+
+<h2 id="javascript">javascript</h2>
+
+<h3 id="timestamp">Timestamp</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ts</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre></div></div>
+<p>##Misc</p>
+
+<h3 id="vim-paste-to-command-line">Vim Paste to Command Line</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CTRL+R dann * oder "
+</code></pre></div></div>
+
+<h3 id="symbolic-links-on-folders-in-windows-command-prompt">Symbolic Links on folders in windows command prompt</h3>
 <pre><code class="language-cmd">mklink /J "C:\Link To Folder" "C:\Users\Name\Original Folder"
 </code></pre>
+
+<h3 id="symbolic-link-for-files">Symbolic Link for Files</h3>
+<pre><code class="language-cmd">mklink /H linkname target
+</code></pre>
+
 <p><a href="https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/">Source</a></p>
+
 
   </div><a class="u-url" href="/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" hidden></a>
 </article>

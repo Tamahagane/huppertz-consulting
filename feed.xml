@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-18T11:57:53-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Useful Snippets</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" rel="alternate" type="text/html" title="Useful Snippets" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html">&lt;h1 id=&quot;useful-code-snippets&quot;&gt;Useful Code Snippets&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-18T12:43:52-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Useful Snippets</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" rel="alternate" type="text/html" title="Useful Snippets" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html">&lt;h1 id=&quot;useful-code-snippets&quot;&gt;Useful Code Snippets&lt;/h1&gt;
 
-&lt;h2 id=&quot;logging-tensorflow-data-into-a-directory-within-cwd&quot;&gt;Logging TensorFlow Data into a directory within cwd&lt;/h2&gt;
+&lt;h2 id=&quot;tensorflow&quot;&gt;TensorFlow&lt;/h2&gt;
+
+&lt;h3 id=&quot;logging-tensorflow-data-into-a-directory-within-cwd&quot;&gt;Logging TensorFlow Data into a directory within cwd&lt;/h3&gt;
+&lt;hr /&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#create directory first
 &lt;/span&gt;
@@ -12,51 +15,199 @@
 &lt;span class=&quot;n&quot;&gt;writer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#sess is the current Tensorflow session
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;delete-files-older-than-x-days&quot;&gt;Delete Files older than x days&lt;/h2&gt;
+&lt;h2 id=&quot;bash&quot;&gt;bash&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;'''
-find /path/to/files/ -type f -name '&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.jpg&lt;span class=&quot;s1&quot;&gt;' -mtime +30 -exec rm {} \;
-'''&lt;/span&gt;
-First part is the path where your files are located. Don’t use wildcard &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;you have a lot of files because you will get Argument list too long error.
-Second part &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; is the file &lt;span class=&quot;nb&quot;&gt;type &lt;/span&gt;f stands &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;files
-Third part &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; is limiting &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;,jpg files
-Fourth part &lt;span class=&quot;nt&quot;&gt;-mtime&lt;/span&gt; gets how many days the files older &lt;span class=&quot;k&quot;&gt;then &lt;/span&gt;will be listed. +30 is &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;files older &lt;span class=&quot;k&quot;&gt;then &lt;/span&gt;30 days.
-Fifth part &lt;span class=&quot;nt&quot;&gt;-exec&lt;/span&gt; executes a command. In this &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;is the &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; gets the filelist and &lt;span class=&quot;se&quot;&gt;\;&lt;/span&gt; closes the &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;
+&lt;h3 id=&quot;delete-files-older-than-x-days&quot;&gt;Delete Files older than x days&lt;/h3&gt;
 
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find /path/to/files/ &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*.jpg'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-mtime&lt;/span&gt; +30 &lt;span class=&quot;nt&quot;&gt;-exec&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;First part is the path where your files are located. Don’t use wildcard * if you have a lot of files because you will get Argument list too long error.
+Second part -type is the file type f stands for files
+Third part -name is limiting *,jpg files
+Fourth part -mtime gets how many days the files older then will be listed. +30 is for files older then 30 days.
+Fifth part -exec executes a command. In this case rm is the command, {} gets the filelist and \; closes the command&lt;/p&gt;
 
-&lt;h2 id=&quot;normalise-columns-in-a-dataframe&quot;&gt;Normalise columns in a dataframe&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;diabetes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols_to_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diabetes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols_to_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;shallow-cloning-of-git-repo&quot;&gt;Shallow cloning of git repo&lt;/h2&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &amp;lt;git.repo&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;js-timestamp&quot;&gt;JS Timestamp&lt;/h2&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;create-virtual-environment-with-virtualenv&quot;&gt;Create Virtual Environment with virtualenv&lt;/h2&gt;
+&lt;h3 id=&quot;create-virtual-environment-with-virtualenv&quot;&gt;Create Virtual Environment with virtualenv&lt;/h3&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;virtualenv name_of_venv
 &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;venv&lt;span class=&quot;se&quot;&gt;\S&lt;/span&gt;cripts&lt;span class=&quot;se&quot;&gt;\a&lt;/span&gt;ctivate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;bash-search-text-in-files&quot;&gt;Bash search text in files&lt;/h2&gt;
+&lt;h3 id=&quot;bash-search-text-in-files&quot;&gt;Bash search text in files&lt;/h3&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rnw&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/path/to/somewhere/'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'pattern'&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; or &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; is recursive,
 &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; is line number, and
 &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; stands &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;match the whole word.
 &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;lower-case L&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; can be added to just give the file name of matching files.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Vim Paste to Command Line
-————————-
-CTRL+R dann * oder “&lt;/p&gt;
 
-&lt;h2 id=&quot;symbolic-links-on-folders-in-windows-command-prompt&quot;&gt;Symbolic Links on folders in windows command prompt&lt;/h2&gt;
+&lt;h2 id=&quot;pandas&quot;&gt;pandas&lt;/h2&gt;
+
+&lt;h3 id=&quot;normalise-columns-in-a-dataframe&quot;&gt;Normalise columns in a dataframe&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;diabetes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols_to_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diabetes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols_to_norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;git&quot;&gt;git&lt;/h2&gt;
+
+&lt;h3 id=&quot;shallow-cloning-of-git-repo&quot;&gt;Shallow cloning of git repo&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &lt;span class=&quot;nt&quot;&gt;--depth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &amp;lt;git.repo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;javascript&quot;&gt;javascript&lt;/h2&gt;
+
+&lt;h3 id=&quot;timestamp&quot;&gt;Timestamp&lt;/h3&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;##Misc&lt;/p&gt;
+
+&lt;h3 id=&quot;vim-paste-to-command-line&quot;&gt;Vim Paste to Command Line&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CTRL+R dann * oder &quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;symbolic-links-on-folders-in-windows-command-prompt&quot;&gt;Symbolic Links on folders in windows command prompt&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-cmd&quot;&gt;mklink /J &quot;C:\Link To Folder&quot; &quot;C:\Users\Name\Original Folder&quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Useful Code Snippets</summary></entry><entry><title type="html">Fastpages Notebook Blog Post</title><link href="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html" rel="alternate" type="text/html" title="Fastpages Notebook Blog Post" /><published>2020-02-20T00:00:00-06:00</published><updated>2020-02-20T00:00:00-06:00</updated><id>https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html">&lt;!--
+
+&lt;h3 id=&quot;symbolic-link-for-files&quot;&gt;Symbolic Link for Files&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cmd&quot;&gt;mklink /H linkname target
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Useful Code Snippets</summary></entry><entry><title type="html">Raspberry Pi - Setup and First Steps</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" rel="alternate" type="text/html" title="Raspberry Pi - Setup and First Steps" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html">&lt;h1 id=&quot;raspberry-pi&quot;&gt;Raspberry Pi&lt;/h1&gt;
+
+&lt;h2 id=&quot;command-line-configuration&quot;&gt;Command-Line Configuration&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;raspi-config 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;restart&quot;&gt;Restart&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;shutdown &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; now
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;get-ip-address&quot;&gt;Get IP address&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ifconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;install-jenkins-on-raspi&quot;&gt;Install Jenkins on RasPi&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://t2informatik.de/blog/softwareentwicklung/ci-cd-pipeline-auf-einem-raspberry-pi-teil-3/&quot;&gt;CI/CD Pipeline auf einem Raspberry Pi – Teil 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;change-swap-file-size&quot;&gt;Change Swap-File Size&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /etc/init.d/dphys-swapfile stop
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/dphys-swapfile
+&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /etc/init.d/dphys-swapfile start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;re-issue-ssh-keys&quot;&gt;Re-issue ssh keys&lt;/h2&gt;
+
+&lt;p&gt;Delete key-files and re-create them&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/ssh/ssh_host_&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg-reconfigure openssh-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Invalidate keys on client side if successfully connected before:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;ip-address of raspi&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;show-processes&quot;&gt;Show processes&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ps aux | less
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Unresponsive processess can then be stopped via&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;running-a-python-script-automatically-at-startup&quot;&gt;Running a Python Script Automatically at Startup&lt;/h2&gt;
+
+&lt;p&gt;Because the Pi can act as a standalone appliance, a common
+question is how to launch a Python script automatically when
+the Pi boots up. The answer is to add an entry to the /etc/
+rc.local file, which is used for exactly this in the Linux world.&lt;/p&gt;
+
+&lt;p&gt;Just edit the file:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/rc.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;and add a command to execute your script between the commented section and exit 0. Something like:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python /home/pi/foo.py&amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The ampersand at the end will run the script as a background
+process, which will allow all the other services of the Pi to continue booting up.&lt;/p&gt;
+
+&lt;h2 id=&quot;autostart-desktop&quot;&gt;Autostart Desktop&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /home/pi/.config/autostart
+nano /home/pi/.config/autostart/clock.desktop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Desktop Entry]
+Type=Application
+Name=Clock
+Exec=/usr/bin/python3 /home/pi/clock.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Desktop Entry]
+Type=Application
+Name=airflow-webserver
+Exec=xterm -hold -e '/home/pi/.local/bin/airflow webserver -p 8080'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;onscreen-keyboard&quot;&gt;OnScreen Keyboard&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;at-spi2-core florence
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;disable-screensaver&quot;&gt;Disable Screensaver&lt;/h2&gt;
+
+&lt;p&gt;The easiest way to disable screen blanking in the Raspbian GUI is to install xscreensaver then configure it to disabled.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;xscreensaver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;In the [Display Mode] tab, set like this - Mode: [Disable Screen Saver]
+&lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?t=57552cd&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;install-rss-reader&quot;&gt;Install RSS-Reader&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;quiterss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;akregator
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ssh-tips--tricks&quot;&gt;ssh tips &amp;amp; tricks&lt;/h2&gt;
+&lt;p&gt;https://smallstep.com/blog/ssh-tricks-and-tips/&lt;/p&gt;
+
+&lt;h2 id=&quot;starting-up-a-raspi-zero-w-without-a-screen&quot;&gt;Starting up a Raspi Zero W without a screen&lt;/h2&gt;
+
+&lt;p&gt;SSH aktivieren: 
+Um den SSH-Zugriff zu aktivieren, erstellen Sie im Verzeichnis der MicroSD-Karte (/boot) eine leere Datei mit dem Namen “ssh” (ohne Dateierweiterung).&lt;/p&gt;
+
+&lt;p&gt;WLAN aktivieren: 
+Um den WLAN-Zugriff zu aktivieren, erstellen Sie im Verzeichnis der MicroSD-Karte (/boot) eine Datei mit dem Namen “wpa_supplicant.conf” (die Dateierweiterung hier ist .conf – kein .txt dahinter stellen, sonst funktioniert es nicht) mit folgendem Inhalt:&lt;/p&gt;
+
+&lt;p&gt;ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1&lt;/p&gt;
+
+&lt;p&gt;network={
+ssid=”&lt;Ihr_SSID&gt;&quot;
+psk=&quot;&lt;Ihr_Passwort&gt;&quot;
+}
+[Source](https://braspi.de/blogs/braspi-blog/raspberry-pi-ersteinrichtung-ohne-monitor-und-tastatur)&lt;/Ihr_Passwort&gt;&lt;/Ihr_SSID&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-pi-hole&quot;&gt;Installing Pi-Hole&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-sSL&lt;/span&gt; https://install.pi-hole.net | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.heise.de/tipps-tricks/Pi-Hole-auf-dem-Raspberry-Pi-einrichten-so-geht-s-4358553.html&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Raspberry Pi</summary></entry><entry><title type="html">Fastpages Notebook Blog Post</title><link href="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html" rel="alternate" type="text/html" title="Fastpages Notebook Blog Post" /><published>2020-02-20T00:00:00-06:00</published><updated>2020-02-20T00:00:00-06:00</updated><id>https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
