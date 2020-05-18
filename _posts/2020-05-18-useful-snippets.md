@@ -1,11 +1,20 @@
-Snippets
-========
-
+---
+title: "Useful Snippets"
+description: "Collection of useful code snippets"
+layout: post
+toc: false
+comments: false
+hide: false
+search_exclude: true
+categories: [tooling, python, javascript]
+---
+ 
+# Useful Code Snippets
 
 Logging TensorFlow Data into a directory within cwd
 -------------------------------------------
 
-
+```python
 #create directory first
 
 import os
@@ -14,11 +23,12 @@ print(log_dir)
 
 writer = tf.summary.FileWriter(log_dir)
 writer.add_graph(sess.graph) #sess is the current Tensorflow session
-
+```
 
 Delete Files older than x days
 ---------------------------------
 
+```bash
 '''
 find /path/to/files/ -type f -name '*.jpg' -mtime +30 -exec rm {} \;
 '''
@@ -28,44 +38,46 @@ Third part -name is limiting *,jpg files
 Fourth part -mtime gets how many days the files older then will be listed. +30 is for files older then 30 days.
 Fifth part -exec executes a command. In this case rm is the command, {} gets the filelist and \; closes the command
 
+```
 
 Normalise columns in a dataframe
 ------------------------------------
-'''
+```python
 diabetes[cols_to_norm] = diabetes[cols_to_norm].apply(lambda x: (x - x.min())/(x.max()-x.min()))
-'''
+```
+
 
 Shallow cloning of git repo
 ----------------------------
-
+```bash
 git clone --depth=1 <git.repo>
+```
 
 JS Timestamp
 ---------------
+```javascript
 var ts = Math.round((new Date()).getTime() / 1000);
+```
 
 Create Virtual Environment with virtualenv
 --------------------------------------------
+```bash
 virtualenv name_of_venv
-venv\Scripts\activate
-
-
+source venv\Scripts\activate
+```
 
 Bash search text in files
 ---------------------------
+```bash
 grep -rnw '/path/to/somewhere/' -e 'pattern'
 -r or -R is recursive,
 -n is line number, and
 -w stands for match the whole word.
 -l (lower-case L) can be added to just give the file name of matching files.
-
+```
 Vim Paste to Command Line
 -------------------------
 CTRL+R dann * oder "
-
-PS Report Venv
------------------ 
- source ~/.virtualenvs/papstar_virtual_env/bin/activate
 
 Symbolic Links on folders in windows command prompt
 ------------------------------------------------------
