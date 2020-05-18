@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Useful Snippets | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Useful Snippets" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Collection of useful code snippets" />
+<meta property="og:description" content="Collection of useful code snippets" />
+<link rel="canonical" href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" />
+<meta property="og:url" content="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Collection of useful code snippets","@type":"BlogPosting","headline":"Useful Snippets","dateModified":"2020-05-18T00:00:00-05:00","datePublished":"2020-05-18T00:00:00-05:00","url":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/huppertz-consulting/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tamahagane.github.io/huppertz-consulting/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/huppertz-consulting/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Useful Snippets | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Useful Snippets" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Collection of useful code snippets" />
+<meta property="og:description" content="Collection of useful code snippets" />
+<link rel="canonical" href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" />
+<meta property="og:url" content="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Collection of useful code snippets","@type":"BlogPosting","headline":"Useful Snippets","dateModified":"2020-05-18T00:00:00-05:00","datePublished":"2020-05-18T00:00:00-05:00","url":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://tamahagane.github.io/huppertz-consulting/feed.xml" title="fastpages" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/huppertz-consulting/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/huppertz-consulting/about/">About Me</a><a class="page-link" href="/huppertz-consulting/search/">Search</a><a class="page-link" href="/huppertz-consulting/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Useful Snippets</h1><p class="page-description">Collection of useful code snippets</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-18T00:00:00-05:00" itemprop="datePublished">
+        May 18, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#tooling">tooling</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#javascript">javascript</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="useful-code-snippets">Useful Code Snippets</h1>
+
+<h2 id="logging-tensorflow-data-into-a-directory-within-cwd">Logging TensorFlow Data into a directory within cwd</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#create directory first
+</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">log_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s">"logs"</span><span class="p">,</span><span class="s">"log1"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">log_dir</span><span class="p">)</span>
+
+<span class="n">writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">FileWriter</span><span class="p">(</span><span class="n">log_dir</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">add_graph</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span> <span class="c1">#sess is the current Tensorflow session
+</span></code></pre></div></div>
+
+<h2 id="delete-files-older-than-x-days">Delete Files older than x days</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'''
+find /path/to/files/ -type f -name '</span><span class="k">*</span>.jpg<span class="s1">' -mtime +30 -exec rm {} \;
+'''</span>
+First part is the path where your files are located. Don’t use wildcard <span class="k">*</span> <span class="k">if </span>you have a lot of files because you will get Argument list too long error.
+Second part <span class="nt">-type</span> is the file <span class="nb">type </span>f stands <span class="k">for </span>files
+Third part <span class="nt">-name</span> is limiting <span class="k">*</span>,jpg files
+Fourth part <span class="nt">-mtime</span> gets how many days the files older <span class="k">then </span>will be listed. +30 is <span class="k">for </span>files older <span class="k">then </span>30 days.
+Fifth part <span class="nt">-exec</span> executes a command. In this <span class="k">case</span> <span class="nb">rm </span>is the <span class="nb">command</span>, <span class="o">{}</span> gets the filelist and <span class="se">\;</span> closes the <span class="nb">command</span>
+
+</code></pre></div></div>
+
+<h2 id="normalise-columns-in-a-dataframe">Normalise columns in a dataframe</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">()))</span>
+</code></pre></div></div>
+
+<h2 id="shallow-cloning-of-git-repo">Shallow cloning of git repo</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 &lt;git.repo&gt;
+</code></pre></div></div>
+
+<h2 id="js-timestamp">JS Timestamp</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ts</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="create-virtual-environment-with-virtualenv">Create Virtual Environment with virtualenv</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv name_of_venv
+<span class="nb">source </span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+
+<h2 id="bash-search-text-in-files">Bash search text in files</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="s1">'/path/to/somewhere/'</span> <span class="nt">-e</span> <span class="s1">'pattern'</span>
+<span class="nt">-r</span> or <span class="nt">-R</span> is recursive,
+<span class="nt">-n</span> is line number, and
+<span class="nt">-w</span> stands <span class="k">for </span>match the whole word.
+<span class="nt">-l</span> <span class="o">(</span>lower-case L<span class="o">)</span> can be added to just give the file name of matching files.
+</code></pre></div></div>
+<p>Vim Paste to Command Line
+————————-
+CTRL+R dann * oder “</p>
+
+<h2 id="symbolic-links-on-folders-in-windows-command-prompt">Symbolic Links on folders in windows command prompt</h2>
+<pre><code class="language-cmd">mklink /J "C:\Link To Folder" "C:\Users\Name\Original Folder"
+</code></pre>
+<p><a href="https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/">Source</a></p>
+
+  </div><a class="u-url" href="/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/huppertz-consulting/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/huppertz-consulting/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
