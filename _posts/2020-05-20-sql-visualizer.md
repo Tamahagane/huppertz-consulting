@@ -31,13 +31,13 @@ I was in desperate need for some kind of support and wanted to use [queryscope](
 So, I took to recreating parts of queryscope's features from scratch in python to keep all source on premise, the result of which you can see here:
 
 
-Running of the script will yield results like so:
+Running the script will yield results like so:
 
-| ![](/images/sql_visualizer/result.png) | 
+| ![]({{ site.baseurl }}/images/sql_visualizer/result.png) | 
 |:--:| 
 |**Output of the query below**|
 
-**Caveat**: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many CTE to create complex in memory tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:
+**Caveat**: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many a CTE to create complex temporary tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:
 
 ```sql
 
@@ -265,7 +265,7 @@ dot.render('output/'+filename.replace('.', '_')+'.gv', view=True)
 ```
 
 
-As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are also displayed as an ellipse as opposed to a rectangle.
+As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic random assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are displayed as an ellipse as opposed to a rectangle.
 
 This whole thing is a quick draft that took me about 4-5 hours to write, but it saved me countless hours in debugging.
 
