@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simple Visualizer for Teradata/t-SQL Queries | Huppertz Consulting Blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple Visualizer for Teradata/t-SQL Queries" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A quick tool to help debugging complicated CTE expressions." />
+<meta property="og:description" content="A quick tool to help debugging complicated CTE expressions." />
+<link rel="canonical" href="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" />
+<meta property="og:url" content="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" />
+<meta property="og:site_name" content="Huppertz Consulting Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"A quick tool to help debugging complicated CTE expressions.","@type":"BlogPosting","headline":"Simple Visualizer for Teradata/t-SQL Queries","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/huppertz-consulting/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tamahagane.github.io/huppertz-consulting/feed.xml" title="Huppertz Consulting Blog" /><link rel="shortcut icon" type="image/x-icon" href="/huppertz-consulting/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simple Visualizer for Teradata/t-SQL Queries | Huppertz Consulting Blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple Visualizer for Teradata/t-SQL Queries" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A quick tool to help debugging complicated CTE expressions." />
+<meta property="og:description" content="A quick tool to help debugging complicated CTE expressions." />
+<link rel="canonical" href="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" />
+<meta property="og:url" content="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" />
+<meta property="og:site_name" content="Huppertz Consulting Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"A quick tool to help debugging complicated CTE expressions.","@type":"BlogPosting","headline":"Simple Visualizer for Teradata/t-SQL Queries","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://tamahagane.github.io/huppertz-consulting/feed.xml" title="Huppertz Consulting Blog" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/huppertz-consulting/">Huppertz Consulting Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/huppertz-consulting/about/">About Me</a><a class="page-link" href="/huppertz-consulting/search/">Search</a><a class="page-link" href="/huppertz-consulting/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Simple Visualizer for Teradata/t-SQL Queries</h1><p class="page-description">A quick tool to help debugging complicated CTE expressions.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-20T00:00:00-05:00" itemprop="datePublished">
+        May 20, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#tooling">tooling</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/huppertz-consulting/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="a-simple-visualizer-for-sql-scripts">A Simple Visualizer for SQL scripts</h1>
+
+<p>A while ago, I was working on a project where the client used an expensive high-performance database cluster in order to do demand forecasting for a German supermarket chain.</p>
+
+<p>What the client did not have:</p>
+
+<ul>
+  <li>Automated testing</li>
+  <li>CD/CI-Pipelines</li>
+  <li>Coding guidelines</li>
+  <li>Documentation</li>
+</ul>
+
+<p>What the client <strong>did</strong> have however, was a codebase of about 30,000 lines of pure T-SQL code and a team that learned “on the job”, i.e. had never written a functioning application in this SQL dialect. This resulted in a about 10 scripts of varying length and written in different styles by different people, most of whom had left the project in frustration already by the time I joined.</p>
+
+<p>Combine that with requirements which were subject to change on daily (sometimes hourly) basis, arbitrary restrictions from operations (indexes take up too much space) and being about 100% over budget, it was a recipe for disaster.</p>
+
+<p>Debugging could mean scrolling through a single or multiple scripts each consisting of 3,000 lines of code and dozens of SQL statements and manually recalculating steps along the way. This would of course take hours within which priorities of implementation could (and frequently did) change again.</p>
+
+<p>I was in desperate need for some kind of support and wanted to use <a href="https://app.sqldep.com/demo/">queryscope</a> to get at least a graphical representation of the queries in question but of course the source code was property of the client and I was not allowed to submit it to an unvetted, unapproved vendor for analysis.</p>
+
+<p>So, I took to recreating parts of queryscope’s features from scratch in python to keep all source on premise, the result of which you can see here:</p>
+
+<p>Running of the script will yield results like so:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="images/sql_visualizer/result.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Output of the query below</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Caveat</strong>: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many CTE to create complex in memory tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">WITH</span> <span class="n">cte_category_counts</span> <span class="p">(</span>
+    <span class="n">category_id</span><span class="p">,</span> 
+    <span class="n">category_name</span><span class="p">,</span> 
+    <span class="n">product_count</span>
+<span class="p">)</span>
+<span class="k">AS</span> <span class="p">(</span>
+    <span class="k">SELECT</span> 
+        <span class="k">c</span><span class="p">.</span><span class="n">category_id</span><span class="p">,</span> 
+        <span class="k">c</span><span class="p">.</span><span class="n">category_name</span><span class="p">,</span> 
+        <span class="k">COUNT</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">product_id</span><span class="p">)</span>
+    <span class="k">FROM</span> 
+        <span class="n">production</span><span class="p">.</span><span class="n">products</span> <span class="n">p</span>
+        <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">production</span><span class="p">.</span><span class="n">categories</span> <span class="k">c</span> 
+            <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">category_id</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">category_id</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> 
+        <span class="k">c</span><span class="p">.</span><span class="n">category_id</span><span class="p">,</span> 
+        <span class="k">c</span><span class="p">.</span><span class="n">category_name</span>
+<span class="p">),</span>
+<span class="n">cte_category_sales</span><span class="p">(</span><span class="n">category_id</span><span class="p">,</span> <span class="n">sales</span><span class="p">)</span> <span class="k">AS</span> <span class="p">(</span>
+    <span class="k">SELECT</span>    
+        <span class="n">p</span><span class="p">.</span><span class="n">category_id</span><span class="p">,</span> 
+        <span class="k">SUM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">quantity</span> <span class="o">*</span> <span class="n">i</span><span class="p">.</span><span class="n">list_price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">.</span><span class="n">discount</span><span class="p">))</span>
+    <span class="k">FROM</span>    
+        <span class="n">sales</span><span class="p">.</span><span class="n">order_items</span> <span class="n">i</span>
+        <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">production</span><span class="p">.</span><span class="n">products</span> <span class="n">p</span> 
+            <span class="k">ON</span> <span class="n">p</span><span class="p">.</span><span class="n">product_id</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">product_id</span>
+        <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sales</span><span class="p">.</span><span class="n">orders</span> <span class="n">o</span> 
+            <span class="k">ON</span> <span class="n">o</span><span class="p">.</span><span class="n">order_id</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">order_id</span>
+    <span class="k">WHERE</span> <span class="n">order_status</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">-- completed</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> 
+        <span class="n">p</span><span class="p">.</span><span class="n">category_id</span>
+<span class="p">)</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">categories</span> <span class="p">(</span><span class="n">category_id</span><span class="p">,</span> <span class="n">category_name</span><span class="p">,</span> <span class="n">product_count</span><span class="p">,</span><span class="n">sales</span><span class="p">)</span> 
+<span class="k">SELECT</span> 
+    <span class="k">c</span><span class="p">.</span><span class="n">category_id</span><span class="p">,</span> 
+    <span class="k">c</span><span class="p">.</span><span class="n">category_name</span><span class="p">,</span> 
+    <span class="k">c</span><span class="p">.</span><span class="n">product_count</span><span class="p">,</span> 
+    <span class="n">s</span><span class="p">.</span><span class="n">sales</span>
+<span class="k">FROM</span>
+    <span class="n">cte_category_counts</span> <span class="k">c</span>
+    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">cte_category_sales</span> <span class="n">s</span> 
+        <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">category_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">category_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> 
+    <span class="k">c</span><span class="p">.</span><span class="n">category_name</span><span class="p">;</span>
+
+
+
+<span class="k">WITH</span> <span class="n">cte_business_division_counts</span> <span class="p">(</span><span class="n">division_id</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span> <span class="k">AS</span> <span class="p">(</span>
+    <span class="k">SELECT</span>    
+        <span class="n">d</span><span class="p">.</span><span class="n">division_id</span><span class="p">,</span> 
+        <span class="k">SUM</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">counts</span><span class="p">)</span>
+    <span class="k">FROM</span>    
+        <span class="n">categories</span> <span class="k">c</span>
+        <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">organization</span><span class="p">.</span><span class="n">divisions</span> <span class="n">d</span> 
+            <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">category_id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">category_id</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> 
+        <span class="n">d</span><span class="p">.</span><span class="n">division_id</span>
+<span class="p">)</span>
+<span class="n">cte_business_division_sales</span> <span class="p">(</span><span class="n">division_id</span><span class="p">,</span> <span class="n">division_name</span><span class="p">,</span> <span class="n">sales</span><span class="p">)</span> <span class="k">AS</span> <span class="p">(</span>
+    <span class="k">SELECT</span>    
+        <span class="n">d</span><span class="p">.</span><span class="n">division_id</span><span class="p">,</span>
+        <span class="n">d</span><span class="p">.</span><span class="n">division_name</span><span class="p">,</span> 
+        <span class="k">SUM</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">sales</span><span class="p">)</span>
+    <span class="k">FROM</span>    
+        <span class="n">categories</span> <span class="k">c</span>
+        <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">organization</span><span class="p">.</span><span class="n">divisions</span> <span class="n">d</span> 
+            <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">category_id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">category_id</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> 
+        <span class="n">d</span><span class="p">.</span><span class="n">division_id</span>
+<span class="p">)</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">business_divisions</span> <span class="p">(</span><span class="n">division_id</span><span class="p">,</span> <span class="n">division_name</span><span class="p">,</span> <span class="n">product_count</span><span class="p">,</span><span class="n">sales</span><span class="p">)</span> 
+<span class="k">SELECT</span> 
+    <span class="n">s</span><span class="p">.</span><span class="n">division_id</span><span class="p">,</span> 
+    <span class="n">s</span><span class="p">.</span><span class="n">division_name</span><span class="p">,</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">sales</span><span class="p">,</span>
+    <span class="k">c</span><span class="p">.</span><span class="n">counts</span> 
+<span class="k">FROM</span>
+    <span class="n">cte_business_division_counts</span> <span class="k">c</span>
+    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">cte_business_division_sales</span> <span class="n">s</span> 
+        <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">division_id</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">division_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> 
+    <span class="k">c</span><span class="p">.</span><span class="n">division_name</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>And this here is the source code for the actual visualizer:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Digraph</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+<span class="c1"># can be used to generate JSON format of graph
+# from networkx.readwrite import json_graph
+</span>
+<span class="n">basedir</span> <span class="o">=</span> <span class="s">'.'</span>
+
+<span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s">'test.sql'</span><span class="p">]</span>
+
+<span class="n">with_deletes</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">dot</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s">'Structure'</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s">'dot'</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="c1"># graphically highlight tables and their incoming connections
+</span><span class="n">highlight_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># do not draw these
+</span><span class="n">ignore_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># collect all nodes here
+</span><span class="n">complete_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
+    <span class="n">f_string</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">sep</span> <span class="o">=</span> <span class="s">';'</span>
+    <span class="n">f_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">sep</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="p">)]</span>
+    <span class="n">f_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">" "</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f_list</span><span class="p">]</span>
+    <span class="n">f_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f_list</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s">"COMMIT;"</span><span class="p">]</span>
+    <span class="n">complete_list</span> <span class="o">+=</span> <span class="n">f_list</span>
+
+
+<span class="c1"># define regular expressions for SQL statements
+</span><span class="n">re_create</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"CREATE\s+(?:MULTISET)?\s+TABLE\s+([a-zA-Z0-9_\.]+)\s*,"</span><span class="p">,</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">re_insert</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"INSERT\s+INTO\s+([a-zA-Z0-9_\.]+)\s*\("</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">re_from</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"(?&lt;!DELETE)\s+FROM\s+([a-zA-Z0-9_\.]+)[;\s]+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+<span class="n">re_cte</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"(?:WITH)?\s+([A-Za-z0-9_]+)\s+AS\s?\("</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">re_join</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"JOIN\s+([A-Za-z0-9_\.]+)\s"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">re_update</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"UPDATE\s([\w])+\sSET\s[\w\,\'\=_]+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">re_delete</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span>
+    <span class="s">r"DELETE\sFROM\s([\d\w\.\'\=_]+.*;)"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+
+<span class="n">node_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">delete_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">create_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># go through all statements and check if they match a regex
+</span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">statement</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">complete_list</span><span class="p">):</span>
+    <span class="n">statement</span> <span class="o">=</span> <span class="n">statement</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">" "</span><span class="p">)</span>
+
+    <span class="n">to_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">from_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_create</span><span class="p">,</span> <span class="n">statement</span><span class="p">):</span>
+        <span class="n">create_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_delete</span><span class="p">,</span> <span class="n">statement</span><span class="p">):</span>
+        <span class="n">delete_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_insert</span><span class="p">,</span> <span class="n">statement</span><span class="p">)):</span>
+        <span class="n">to_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">match</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_update</span><span class="p">,</span> <span class="n">statement</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">match</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">Counter</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_cte</span><span class="p">,</span> <span class="n">statement</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s : </span><span class="si">%</span><span class="s">i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">match</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">Counter</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_from</span><span class="p">,</span> <span class="n">statement</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">match</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_cte</span><span class="p">,</span> <span class="n">statement</span><span class="p">):</span>
+            <span class="n">from_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">match</span><span class="p">))</span>
+
+    <span class="c1"># print(5*'-' + 'Joins (CTEs removed)' + 5*'-')
+</span>    <span class="k">for</span> <span class="n">match</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">Counter</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_join</span><span class="p">,</span> <span class="n">statement</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">match</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_cte</span><span class="p">,</span> <span class="n">f_string</span><span class="p">):</span>
+            <span class="c1"># print("%s : %i" % (match,count))
+</span>            <span class="n">from_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">match</span><span class="p">))</span>
+
+    <span class="n">from_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">from_nodes</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore_list</span><span class="p">]</span>
+    <span class="n">to_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">to_nodes</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore_list</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">to_node</span> <span class="ow">in</span> <span class="n">to_nodes</span><span class="p">:</span>
+    	<span class="c1"># for every node switch between picking colors from the "left" and "right" end 
+</span>    	<span class="c1"># the spectrum so similar colors do not appear next to each other
+</span>        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">edge_color</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_list</span><span class="p">)),</span> <span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="s">" 1.0 "</span> <span class="o">+</span>\
+               <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_list</span><span class="p">)),</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">edge_color</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_list</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_list</span><span class="p">)),</span> <span class="mi">2</span><span class="p">))</span>\
+                 <span class="o">+</span> <span class="s">" 1.0 "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_list</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_list</span><span class="p">)),</span> <span class="mi">2</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">to_node</span> <span class="ow">in</span> <span class="n">highlight_nodes</span><span class="p">:</span>
+            <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">to_node</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">edge_color</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">'filled'</span><span class="p">,</span>
+                     <span class="n">fillcolor</span><span class="o">=</span><span class="n">edge_color</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">to_node</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">edge_color</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">from_node</span> <span class="ow">in</span> <span class="n">from_nodes</span><span class="p">:</span>
+            <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">from_node</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s">'box'</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">to_node</span> <span class="ow">in</span> <span class="n">highlight_nodes</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">from_node</span> <span class="ow">in</span> <span class="n">highlight_nodes</span><span class="p">):</span>
+                <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">from_node</span><span class="p">,</span> <span class="n">to_node</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">edge_color</span><span class="p">,</span> <span class="n">penwidth</span><span class="o">=</span><span class="s">'3'</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">from_node</span><span class="p">,</span> <span class="n">to_node</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">edge_color</span><span class="p">)</span>
+
+<span class="c1"># graphically represent deletes within the query
+</span><span class="k">if</span> <span class="n">with_deletes</span><span class="p">:</span>
+    <span class="n">delete_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">del_node</span><span class="p">)</span> <span class="k">for</span> <span class="n">del_node</span> <span class="ow">in</span> <span class="n">delete_nodes</span><span class="p">]</span>
+    <span class="n">delete_label</span> <span class="o">=</span> <span class="s">'&lt;&lt;B&gt;DELETES&lt;/B&gt;&lt;br/&gt;'</span> <span class="o">+</span> <span class="s">'&lt;br/&gt;'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">delete_nodes</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&gt;'</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s">'DELETES'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">delete_label</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s">'box'</span><span class="p">)</span>
+
+<span class="c1"># print(5*'-' + 'All participating Tables' + 5*'-')
+# for match in set(re.findall(re_from,f_string)+re.findall(re_insert,f_string)+re.findall(re_join,f_string)):
+#    if match not in re.findall(re_cte,f_string):
+#        print (match)
+</span>
+
+<span class="n">dot</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">'output/'</span><span class="o">+</span><span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'.'</span><span class="p">,</span> <span class="s">'_'</span><span class="p">)</span><span class="o">+</span><span class="s">'.gv'</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># print(dot.source)
+# dot_graph = G.read_dot()
+# print (json_graph.dumps(dot_graph))
+</span>
+</code></pre></div></div>
+
+<p>As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are also displayed as an ellipse as opposed to a rectangle.</p>
+
+<p>This whole thing is a quick draft that took me about 4-5 hours to write, but it saved me countless hours in debugging.</p>
+
+<p>This script could also be integrated into a CD/CI-pipeline in order to create a constantly updated visual documentation of the project.</p>
+
+  </div><a class="u-url" href="/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/huppertz-consulting/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/huppertz-consulting/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Challenge. Digital. Business. - Notes on all of them.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Tamahagane" title="Tamahagane"><svg class="svg-icon grey"><use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/manuelhuppertz" title="manuelhuppertz"><svg class="svg-icon grey"><use xlink:href="/huppertz-consulting/assets/minima-social-icons.svg#linkedin"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
