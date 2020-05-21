@@ -10,15 +10,15 @@
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
 
+$site-title-color: #ffffff;
+
 .site-header {
-    background-color: #rgba(151,151,151,0.9);
+    background-color: rgba(151,151,151,0.9);
     border-top: none;
 
 }
 
 .site-title {
-    color: #ffffff;
-
     &:before{
         background: url(/huppertz-consulting/images/logo.png) CENTER CENTER NO-REPEAT;
         content: "";
@@ -29,15 +29,16 @@
         margin-right: 4px;
     }
 }
+.site-nav{
+    .page-link {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 600;
+        position: relative;
+        text-align:center;
+        text-shadow: 1px 1px 1px #222222;
+        display: block;
+        padding: 0 5px 5px 5px; 
 
-.page-link {
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 600;
-    position: relative;
-    text-align:center;
-    text-shadow: 1px 1px 1px #222222;
-    display: block;
-    padding: 0 5px 5px 5px; 
-
+    }
 }
