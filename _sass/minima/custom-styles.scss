@@ -9,3 +9,14 @@
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
+
+.site-header{
+    background-color: #444444;
+    color: #ffffff
+}
+
+.site-title{
+    &:before{
+        content: url(/huppertz-consulting/images/logo.png)
+    }
+}
