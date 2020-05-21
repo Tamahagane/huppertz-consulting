@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-21T04:15:56-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">Huppertz Consulting Blog</title><subtitle>Challenge. Digital. Business. - Notes on all of them.</subtitle><entry><title type="html">Simple Visualizer for Teradata/t-SQL Queries</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" rel="alternate" type="text/html" title="Simple Visualizer for Teradata/t-SQL Queries" /><published>2020-05-20T00:00:00-05:00</published><updated>2020-05-20T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html">&lt;h1 id=&quot;a-simple-visualizer-for-sql-scripts&quot;&gt;A Simple Visualizer for SQL scripts&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-21T04:32:32-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">Huppertz Consulting Blog</title><subtitle>Challenge. Digital. Business. - Notes on all of them.</subtitle><entry><title type="html">Simple Visualizer for Teradata/t-SQL Queries</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" rel="alternate" type="text/html" title="Simple Visualizer for Teradata/t-SQL Queries" /><published>2020-05-20T00:00:00-05:00</published><updated>2020-05-20T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html">&lt;h1 id=&quot;a-simple-visualizer-for-sql-scripts&quot;&gt;A Simple Visualizer for SQL scripts&lt;/h1&gt;
 
 &lt;p&gt;A while ago, I was working on a project where the client used an expensive high-performance database cluster in order to do demand forecasting for a German supermarket chain.&lt;/p&gt;
 
@@ -21,12 +21,12 @@
 
 &lt;p&gt;So, I took to recreating parts of queryscope’s features from scratch in python to keep all source on premise, the result of which you can see here:&lt;/p&gt;
 
-&lt;p&gt;Running of the script will yield results like so:&lt;/p&gt;
+&lt;p&gt;Running the script will yield results like so:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/sql_visualizer/result.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/sql_visualizer/result.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -36,7 +36,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Caveat&lt;/strong&gt;: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many CTE to create complex in memory tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Caveat&lt;/strong&gt;: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many a CTE to create complex temporary tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:&lt;/p&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;k&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cte_category_counts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
@@ -261,7 +261,7 @@
 &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are also displayed as an ellipse as opposed to a rectangle.&lt;/p&gt;
+&lt;p&gt;As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic random assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are displayed as an ellipse as opposed to a rectangle.&lt;/p&gt;
 
 &lt;p&gt;This whole thing is a quick draft that took me about 4-5 hours to write, but it saved me countless hours in debugging.&lt;/p&gt;
 

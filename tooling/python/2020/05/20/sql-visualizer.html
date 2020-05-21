@@ -133,12 +133,12 @@ window.onload = wrap_img;
 
 <p>So, I took to recreating parts of queryscope’s features from scratch in python to keep all source on premise, the result of which you can see here:</p>
 
-<p>Running of the script will yield results like so:</p>
+<p>Running the script will yield results like so:</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center"><img src="/images/sql_visualizer/result.png" alt="" /></th>
+      <th style="text-align: center"><img src="/huppertz-consulting/images/sql_visualizer/result.png" alt="" /></th>
     </tr>
   </thead>
   <tbody>
@@ -148,7 +148,7 @@ window.onload = wrap_img;
   </tbody>
 </table>
 
-<p><strong>Caveat</strong>: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many CTE to create complex in memory tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:</p>
+<p><strong>Caveat</strong>: This code was only tested  with the very specific way the developers on this project wrote their SQL queries, i.e. using many a CTE to create complex temporary tables and then persisting them into intermediary tables, a pattern which is replicated with mock statements in the following SQL snippet:</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">WITH</span> <span class="n">cte_category_counts</span> <span class="p">(</span>
@@ -373,7 +373,7 @@ window.onload = wrap_img;
 </span>
 </code></pre></div></div>
 
-<p>As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are also displayed as an ellipse as opposed to a rectangle.</p>
+<p>As you can see, there are also ways to highlight certain nodes, as well as omitting them from the output. There is also an automatic random assignment of a color to any persistent table and all edges going into the respective node are also color-coded accordingly. Nodes that have no downstream dependents within the query are displayed as an ellipse as opposed to a rectangle.</p>
 
 <p>This whole thing is a quick draft that took me about 4-5 hours to write, but it saved me countless hours in debugging.</p>
 
