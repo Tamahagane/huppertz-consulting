@@ -483,4 +483,8 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .highlight .gd { color: #ff5555; }
 
+.site-header { background-color: #444444; color: #ffffff; }
+
+.site-title:before { content: url(/huppertz-consulting/images/logo.png); }
+
 /*# sourceMappingURL=style.css.map */
