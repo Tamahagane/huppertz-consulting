@@ -33,7 +33,7 @@ So, I took to recreating parts of queryscope's features from scratch in python t
 
 Running of the script will yield results like so:
 
-| ![](images/sql_visualizer/result.png) | 
+| ![](/images/sql_visualizer/result.png) | 
 |:--:| 
 |**Output of the query below**|
 
