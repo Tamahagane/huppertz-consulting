@@ -113,12 +113,50 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="useful-code-snippets">Useful Code Snippets</h1>
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#useful-code-snippets">Useful Code Snippets</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#tensorflow">TensorFlow</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#logging-tensorflow-data-into-a-directory-within-cwd">Logging TensorFlow Data into a directory within cwd</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#bash">bash</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#delete-files-older-than-x-days">Delete Files older than x days</a></li>
+<li class="toc-entry toc-h3"><a href="#create-virtual-environment-with-virtualenv">Create Virtual Environment with virtualenv</a></li>
+<li class="toc-entry toc-h3"><a href="#bash-search-text-in-files">Bash search text in files</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#pandas">pandas</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#normalise-columns-in-a-dataframe">Normalise columns in a dataframe</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#git">git</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#shallow-cloning-of-git-repo">Shallow cloning of git repo</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#javascript">javascript</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#timestamp">Timestamp</a></li>
+<li class="toc-entry toc-h3"><a href="#vim-paste-to-command-line">Vim Paste to Command Line</a></li>
+<li class="toc-entry toc-h3"><a href="#symbolic-links-on-folders-in-windows-command-prompt">Symbolic Links on folders in windows command prompt</a></li>
+<li class="toc-entry toc-h3"><a href="#symbolic-link-for-files">Symbolic Link for Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h1 id="useful-code-snippets">
+<a class="anchor" href="#useful-code-snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Code Snippets</h1>
 
-<h2 id="tensorflow">TensorFlow</h2>
+<h2 id="tensorflow">
+<a class="anchor" href="#tensorflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>TensorFlow</h2>
 
-<h3 id="logging-tensorflow-data-into-a-directory-within-cwd">Logging TensorFlow Data into a directory within cwd</h3>
-<hr />
+<h3 id="logging-tensorflow-data-into-a-directory-within-cwd">
+<a class="anchor" href="#logging-tensorflow-data-into-a-directory-within-cwd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging TensorFlow Data into a directory within cwd</h3>
+<hr>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#create directory first
 </span>
@@ -130,9 +168,11 @@ window.onload = wrap_img;
 <span class="n">writer</span><span class="o">.</span><span class="n">add_graph</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span> <span class="c1">#sess is the current Tensorflow session
 </span></code></pre></div></div>
 
-<h2 id="bash">bash</h2>
+<h2 id="bash">
+<a class="anchor" href="#bash" aria-hidden="true"><span class="octicon octicon-link"></span></a>bash</h2>
 
-<h3 id="delete-files-older-than-x-days">Delete Files older than x days</h3>
+<h3 id="delete-files-older-than-x-days">
+<a class="anchor" href="#delete-files-older-than-x-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delete Files older than x days</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find /path/to/files/ <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s1">'*.jpg'</span> <span class="nt">-mtime</span> +30 <span class="nt">-exec</span> <span class="nb">rm</span> <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></div></div>
@@ -142,12 +182,14 @@ Third part -name is limiting *,jpg files
 Fourth part -mtime gets how many days the files older then will be listed. +30 is for files older then 30 days.
 Fifth part -exec executes a command. In this case rm is the command, {} gets the filelist and \; closes the command</p>
 
-<h3 id="create-virtual-environment-with-virtualenv">Create Virtual Environment with virtualenv</h3>
+<h3 id="create-virtual-environment-with-virtualenv">
+<a class="anchor" href="#create-virtual-environment-with-virtualenv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Virtual Environment with virtualenv</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv name_of_venv
 <span class="nb">source </span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 </code></pre></div></div>
 
-<h3 id="bash-search-text-in-files">Bash search text in files</h3>
+<h3 id="bash-search-text-in-files">
+<a class="anchor" href="#bash-search-text-in-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bash search text in files</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="s1">'/path/to/somewhere/'</span> <span class="nt">-e</span> <span class="s1">'pattern'</span>
 <span class="nt">-r</span> or <span class="nt">-R</span> is recursive,
 <span class="nt">-n</span> is line number, and
@@ -155,35 +197,44 @@ Fifth part -exec executes a command. In this case rm is the command, {} gets the
 <span class="nt">-l</span> <span class="o">(</span>lower-case L<span class="o">)</span> can be added to just give the file name of matching files.
 </code></pre></div></div>
 
-<h2 id="pandas">pandas</h2>
+<h2 id="pandas">
+<a class="anchor" href="#pandas" aria-hidden="true"><span class="octicon octicon-link"></span></a>pandas</h2>
 
-<h3 id="normalise-columns-in-a-dataframe">Normalise columns in a dataframe</h3>
+<h3 id="normalise-columns-in-a-dataframe">
+<a class="anchor" href="#normalise-columns-in-a-dataframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normalise columns in a dataframe</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">diabetes</span><span class="p">[</span><span class="n">cols_to_norm</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="nb">min</span><span class="p">()))</span>
 </code></pre></div></div>
 
-<h2 id="git">git</h2>
+<h2 id="git">
+<a class="anchor" href="#git" aria-hidden="true"><span class="octicon octicon-link"></span></a>git</h2>
 
-<h3 id="shallow-cloning-of-git-repo">Shallow cloning of git repo</h3>
+<h3 id="shallow-cloning-of-git-repo">
+<a class="anchor" href="#shallow-cloning-of-git-repo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shallow cloning of git repo</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--depth</span><span class="o">=</span>1 &lt;git.repo&gt;
 </code></pre></div></div>
 
-<h2 id="javascript">javascript</h2>
+<h2 id="javascript">
+<a class="anchor" href="#javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>javascript</h2>
 
-<h3 id="timestamp">Timestamp</h3>
+<h3 id="timestamp">
+<a class="anchor" href="#timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ts</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
 </code></pre></div></div>
 <p>##Misc</p>
 
-<h3 id="vim-paste-to-command-line">Vim Paste to Command Line</h3>
+<h3 id="vim-paste-to-command-line">
+<a class="anchor" href="#vim-paste-to-command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vim Paste to Command Line</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CTRL+R dann * oder "
 </code></pre></div></div>
 
-<h3 id="symbolic-links-on-folders-in-windows-command-prompt">Symbolic Links on folders in windows command prompt</h3>
+<h3 id="symbolic-links-on-folders-in-windows-command-prompt">
+<a class="anchor" href="#symbolic-links-on-folders-in-windows-command-prompt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbolic Links on folders in windows command prompt</h3>
 <pre><code class="language-cmd">mklink /J "C:\Link To Folder" "C:\Users\Name\Original Folder"
 </code></pre>
 
-<h3 id="symbolic-link-for-files">Symbolic Link for Files</h3>
+<h3 id="symbolic-link-for-files">
+<a class="anchor" href="#symbolic-link-for-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbolic Link for Files</h3>
 <pre><code class="language-cmd">mklink /H linkname target
 </code></pre>
 

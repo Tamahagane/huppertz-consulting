@@ -113,36 +113,64 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="raspberry-pi">Raspberry Pi</h1>
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#raspberry-pi">Raspberry Pi</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#command-line-configuration">Command-Line Configuration</a></li>
+<li class="toc-entry toc-h2"><a href="#restart">Restart</a></li>
+<li class="toc-entry toc-h2"><a href="#get-ip-address">Get IP address</a></li>
+<li class="toc-entry toc-h2"><a href="#install-jenkins-on-raspi">Install Jenkins on RasPi</a></li>
+<li class="toc-entry toc-h2"><a href="#change-swap-file-size">Change Swap-File Size</a></li>
+<li class="toc-entry toc-h2"><a href="#re-issue-ssh-keys">Re-issue ssh keys</a></li>
+<li class="toc-entry toc-h2"><a href="#show-processes">Show processes</a></li>
+<li class="toc-entry toc-h2"><a href="#running-a-python-script-automatically-at-startup">Running a Python Script Automatically at Startup</a></li>
+<li class="toc-entry toc-h2"><a href="#autostart-desktop">Autostart Desktop</a></li>
+<li class="toc-entry toc-h2"><a href="#onscreen-keyboard">OnScreen Keyboard</a></li>
+<li class="toc-entry toc-h2"><a href="#disable-screensaver">Disable Screensaver</a></li>
+<li class="toc-entry toc-h2"><a href="#install-rss-reader">Install RSS-Reader</a></li>
+<li class="toc-entry toc-h2"><a href="#ssh-tips--tricks">ssh tips &amp; tricks</a></li>
+<li class="toc-entry toc-h2"><a href="#starting-up-a-raspi-zero-w-without-a-screen">Starting up a Raspi Zero W without a screen</a></li>
+<li class="toc-entry toc-h2"><a href="#installing-pi-hole">Installing Pi-Hole</a></li>
+<li class="toc-entry toc-h2"><a href="#renaming-the-hostname">Renaming the hostname</a></li>
+</ul>
+</li>
+</ul><h1 id="raspberry-pi">
+<a class="anchor" href="#raspberry-pi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Raspberry Pi</h1>
 
-<h2 id="command-line-configuration">Command-Line Configuration</h2>
+<h2 id="command-line-configuration">
+<a class="anchor" href="#command-line-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command-Line Configuration</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>raspi-config 
 </code></pre></div></div>
-<h2 id="restart">Restart</h2>
+<h2 id="restart">
+<a class="anchor" href="#restart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Restart</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>shutdown <span class="nt">-r</span> now
 </code></pre></div></div>
 
-<h2 id="get-ip-address">Get IP address</h2>
+<h2 id="get-ip-address">
+<a class="anchor" href="#get-ip-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get IP address</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig
 </code></pre></div></div>
 
-<h2 id="install-jenkins-on-raspi">Install Jenkins on RasPi</h2>
+<h2 id="install-jenkins-on-raspi">
+<a class="anchor" href="#install-jenkins-on-raspi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Jenkins on RasPi</h2>
 
 <ul>
   <li><a href="https://t2informatik.de/blog/softwareentwicklung/ci-cd-pipeline-auf-einem-raspberry-pi-teil-3/">CI/CD Pipeline auf einem Raspberry Pi – Teil 3</a></li>
 </ul>
 
-<h2 id="change-swap-file-size">Change Swap-File Size</h2>
+<h2 id="change-swap-file-size">
+<a class="anchor" href="#change-swap-file-size" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change Swap-File Size</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /etc/init.d/dphys-swapfile stop
 <span class="nb">sudo </span>nano /etc/dphys-swapfile
 <span class="nb">sudo</span> /etc/init.d/dphys-swapfile start
 </code></pre></div></div>
 
-<h2 id="re-issue-ssh-keys">Re-issue ssh keys</h2>
+<h2 id="re-issue-ssh-keys">
+<a class="anchor" href="#re-issue-ssh-keys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Re-issue ssh keys</h2>
 
 <p>Delete key-files and re-create them</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> /etc/ssh/ssh_host_<span class="k">*</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>dpkg-reconfigure openssh-server
@@ -152,7 +180,8 @@ window.onload = wrap_img;
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-R</span> <span class="o">{</span>ip-address of raspi<span class="o">}</span>
 </code></pre></div></div>
 
-<h2 id="show-processes">Show processes</h2>
+<h2 id="show-processes">
+<a class="anchor" href="#show-processes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show processes</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | less
 </code></pre></div></div>
@@ -162,7 +191,8 @@ window.onload = wrap_img;
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> 
 </code></pre></div></div>
 
-<h2 id="running-a-python-script-automatically-at-startup">Running a Python Script Automatically at Startup</h2>
+<h2 id="running-a-python-script-automatically-at-startup">
+<a class="anchor" href="#running-a-python-script-automatically-at-startup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running a Python Script Automatically at Startup</h2>
 
 <p>Because the Pi can act as a standalone appliance, a common
 question is how to launch a Python script automatically when
@@ -179,7 +209,8 @@ rc.local file, which is used for exactly this in the Linux world.</p>
 <p>The ampersand at the end will run the script as a background
 process, which will allow all the other services of the Pi to continue booting up.</p>
 
-<h2 id="autostart-desktop">Autostart Desktop</h2>
+<h2 id="autostart-desktop">
+<a class="anchor" href="#autostart-desktop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Autostart Desktop</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> /home/pi/.config/autostart
 nano /home/pi/.config/autostart/clock.desktop
@@ -197,14 +228,16 @@ Name=airflow-webserver
 Exec=xterm -hold -e '/home/pi/.local/bin/airflow webserver -p 8080'
 </code></pre></div></div>
 
-<h2 id="onscreen-keyboard">OnScreen Keyboard</h2>
+<h2 id="onscreen-keyboard">
+<a class="anchor" href="#onscreen-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>OnScreen Keyboard</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nb">sudo </span>apt-get update
 <span class="nb">sudo </span>apt-get <span class="nb">install </span>at-spi2-core florence
 </code></pre></div></div>
 
-<h2 id="disable-screensaver">Disable Screensaver</h2>
+<h2 id="disable-screensaver">
+<a class="anchor" href="#disable-screensaver" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disable Screensaver</h2>
 
 <p>The easiest way to disable screen blanking in the Raspbian GUI is to install xscreensaver then configure it to disabled.</p>
 
@@ -214,7 +247,8 @@ Exec=xterm -hold -e '/home/pi/.local/bin/airflow webserver -p 8080'
 <p>In the [Display Mode] tab, set like this - Mode: [Disable Screen Saver]
 <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=57552cd">Source</a></p>
 
-<h2 id="install-rss-reader">Install RSS-Reader</h2>
+<h2 id="install-rss-reader">
+<a class="anchor" href="#install-rss-reader" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install RSS-Reader</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>quiterss
 </code></pre></div></div>
@@ -224,10 +258,12 @@ Exec=xterm -hold -e '/home/pi/.local/bin/airflow webserver -p 8080'
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>akregator
 </code></pre></div></div>
 
-<h2 id="ssh-tips--tricks">ssh tips &amp; tricks</h2>
+<h2 id="ssh-tips--tricks">
+<a class="anchor" href="#ssh-tips--tricks" aria-hidden="true"><span class="octicon octicon-link"></span></a>ssh tips &amp; tricks</h2>
 <p>https://smallstep.com/blog/ssh-tricks-and-tips/</p>
 
-<h2 id="starting-up-a-raspi-zero-w-without-a-screen">Starting up a Raspi Zero W without a screen</h2>
+<h2 id="starting-up-a-raspi-zero-w-without-a-screen">
+<a class="anchor" href="#starting-up-a-raspi-zero-w-without-a-screen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Starting up a Raspi Zero W without a screen</h2>
 
 <p>SSH aktivieren: 
 Um den SSH-Zugriff zu aktivieren, erstellen Sie im Verzeichnis der MicroSD-Karte (/boot) eine leere Datei mit dem Namen “ssh” (ohne Dateierweiterung).</p>
@@ -239,16 +275,23 @@ Um den WLAN-Zugriff zu aktivieren, erstellen Sie im Verzeichnis der MicroSD-Kart
 update_config=1</p>
 
 <p>network={
-ssid=”<Ihr_SSID>"
-psk="<Ihr_Passwort>"
+ssid=”<ihr_ssid>"
+psk="<ihr_passwort>"
 }
-[Source](https://braspi.de/blogs/braspi-blog/raspberry-pi-ersteinrichtung-ohne-monitor-und-tastatur)</Ihr_Passwort></Ihr_SSID></p>
+[Source](https://braspi.de/blogs/braspi-blog/raspberry-pi-ersteinrichtung-ohne-monitor-und-tastatur)</ihr_passwort></ihr_ssid></p>
 
-<h2 id="installing-pi-hole">Installing Pi-Hole</h2>
+<h2 id="installing-pi-hole">
+<a class="anchor" href="#installing-pi-hole" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Pi-Hole</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://install.pi-hole.net | bash
 </code></pre></div></div>
 <p><a href="https://www.heise.de/tipps-tricks/Pi-Hole-auf-dem-Raspberry-Pi-einrichten-so-geht-s-4358553.html">Source</a></p>
+
+<h2 id="renaming-the-hostname">
+<a class="anchor" href="#renaming-the-hostname" aria-hidden="true"><span class="octicon octicon-link"></span></a>Renaming the hostname</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/hostname
+</code></pre></div></div>
 
   </div><a class="u-url" href="/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" hidden></a>
 </article>
