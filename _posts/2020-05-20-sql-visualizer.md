@@ -1,5 +1,5 @@
 ---
-title: "Simple Visualizer for Teradata/t-SQL Queries"
+title: "Simple Visualizer for Teradata/T-SQL Queries"
 description: "A quick tool to help debugging complicated CTE expressions."
 layout: post
 toc: false
@@ -9,7 +9,7 @@ search_exclude: false
 categories: [tooling, python]
 ---
 
-# A Simple Visualizer for SQL scripts
+# A Simple Visualizer for T-SQL scripts
 
 A while ago, I was working on a project where the client used an expensive high-performance database cluster in order to do demand forecasting for a German supermarket chain.
 

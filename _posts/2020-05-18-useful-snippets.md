@@ -2,7 +2,7 @@
 title: "Useful Snippets"
 description: "Collection of useful code snippets"
 layout: post
-toc: false
+toc: true
 comments: false
 hide: false
 search_exclude: true
