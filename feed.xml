@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tamahagane.github.io/huppertz-consulting/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tamahagane.github.io/huppertz-consulting/" rel="alternate" type="text/html" /><updated>2020-05-25T05:11:16-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/feed.xml</id><title type="html">Huppertz Consulting Blog</title><subtitle>Challenge. Digital. Business. - Notes on all of them.</subtitle><entry><title type="html">Creating a tool for manual testing in Django</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/django/testing/2020/05/24/manual-testing-manager-app.html" rel="alternate" type="text/html" title="Creating a tool for manual testing in Django" /><published>2020-05-24T00:00:00-05:00</published><updated>2020-05-24T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/django/testing/2020/05/24/manual-testing-manager-app</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/django/testing/2020/05/24/manual-testing-manager-app.html">&lt;p&gt;Automated testing is still not as prevalent in software development as one would wish. Testing is apparently very expensive, but experience tells us that the absence of testing is oftentimes even more expensive. Unfortunately, budget deciders do not share these experiences with software developers and therefore decide against the implementation of automatic testing in a project.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://blog.huppertz-consulting.de/feed.xml" rel="self" type="application/atom+xml" /><link href="http://blog.huppertz-consulting.de/" rel="alternate" type="text/html" /><updated>2020-05-25T09:04:11-05:00</updated><id>http://blog.huppertz-consulting.de/feed.xml</id><title type="html">Huppertz Consulting Blog</title><subtitle>Challenge. Digital. Business. - Notes on all of them.</subtitle><entry><title type="html">Creating a tool for manual testing in Django</title><link href="http://blog.huppertz-consulting.de/tooling/python/django/testing/2020/05/24/manual-testing-manager-app.html" rel="alternate" type="text/html" title="Creating a tool for manual testing in Django" /><published>2020-05-24T00:00:00-05:00</published><updated>2020-05-24T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/tooling/python/django/testing/2020/05/24/manual-testing-manager-app</id><content type="html" xml:base="http://blog.huppertz-consulting.de/tooling/python/django/testing/2020/05/24/manual-testing-manager-app.html">&lt;p&gt;Automated testing is still not as prevalent in software development as one would wish. Testing is apparently very expensive, but experience tells us that the absence of testing is oftentimes even more expensive. Unfortunately, budget deciders do not share these experiences with software developers and therefore decide against the implementation of automatic testing in a project.&lt;/p&gt;
 
 &lt;p&gt;The project I was working on as as project manager had exactly this setup. Manually testing the software artifacts produced by the devs was one of my jobs as was the documentation of the testing results.&lt;/p&gt;
 
@@ -31,7 +31,7 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/test_manager/overview.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/test_manager/overview.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -48,7 +48,7 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/test_manager/new_issue.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/test_manager/new_issue.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -63,7 +63,7 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/test_manager/existing_issue.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/test_manager/existing_issue.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -78,7 +78,7 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/test_manager/search.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/test_manager/search.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -93,7 +93,7 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/test_manager/credentials.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/test_manager/credentials.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -108,7 +108,7 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/test_manager/comments.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/test_manager/comments.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -118,7 +118,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;So with this tool I could delegate testing tasks to junior team members through the Django account management, record a history of system stability, had a srtem of new input generated by the testers for the dev team and could ensure a constant and evenly distributed coverage across all test cases.&lt;/p&gt;</content><author><name></name></author><summary type="html">Automated testing is still not as prevalent in software development as one would wish. Testing is apparently very expensive, but experience tells us that the absence of testing is oftentimes even more expensive. Unfortunately, budget deciders do not share these experiences with software developers and therefore decide against the implementation of automatic testing in a project.</summary></entry><entry><title type="html">Forecasting Revenue with fbprophet</title><link href="https://tamahagane.github.io/huppertz-consulting/time%20series/fbprophet/2020/05/22/revenue-forecasting-fbprophet.html" rel="alternate" type="text/html" title=" Forecasting Revenue with fbprophet" /><published>2020-05-22T00:00:00-05:00</published><updated>2020-05-22T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/time%20series/fbprophet/2020/05/22/revenue-forecasting-fbprophet</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/time%20series/fbprophet/2020/05/22/revenue-forecasting-fbprophet.html">&lt;!--
+&lt;p&gt;So with this tool I could delegate testing tasks to junior team members through the Django account management, record a history of system stability, had a srtem of new input generated by the testers for the dev team and could ensure a constant and evenly distributed coverage across all test cases.&lt;/p&gt;</content><author><name></name></author><summary type="html">Automated testing is still not as prevalent in software development as one would wish. Testing is apparently very expensive, but experience tells us that the absence of testing is oftentimes even more expensive. Unfortunately, budget deciders do not share these experiences with software developers and therefore decide against the implementation of automatic testing in a project.</summary></entry><entry><title type="html">Forecasting Revenue with fbprophet</title><link href="http://blog.huppertz-consulting.de/time%20series/fbprophet/2020/05/22/revenue-forecasting-fbprophet.html" rel="alternate" type="text/html" title=" Forecasting Revenue with fbprophet" /><published>2020-05-22T00:00:00-05:00</published><updated>2020-05-22T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/time%20series/fbprophet/2020/05/22/revenue-forecasting-fbprophet</id><content type="html" xml:base="http://blog.huppertz-consulting.de/time%20series/fbprophet/2020/05/22/revenue-forecasting-fbprophet.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -741,7 +741,7 @@ INFO:fbprophet:Disabling daily seasonality. Run prophet with daily_seasonality=T
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Simple Visualizer for Teradata/T-SQL Queries</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html" rel="alternate" type="text/html" title="Simple Visualizer for Teradata/T-SQL Queries" /><published>2020-05-20T00:00:00-05:00</published><updated>2020-05-20T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/2020/05/20/sql-visualizer.html">&lt;h1 id=&quot;a-simple-visualizer-for-t-sql-scripts&quot;&gt;A Simple Visualizer for T-SQL scripts&lt;/h1&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Simple Visualizer for Teradata/T-SQL Queries</title><link href="http://blog.huppertz-consulting.de/tooling/python/2020/05/20/sql-visualizer.html" rel="alternate" type="text/html" title="Simple Visualizer for Teradata/T-SQL Queries" /><published>2020-05-20T00:00:00-05:00</published><updated>2020-05-20T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/tooling/python/2020/05/20/sql-visualizer</id><content type="html" xml:base="http://blog.huppertz-consulting.de/tooling/python/2020/05/20/sql-visualizer.html">&lt;h1 id=&quot;a-simple-visualizer-for-t-sql-scripts&quot;&gt;A Simple Visualizer for T-SQL scripts&lt;/h1&gt;
 
 &lt;p&gt;A while ago, I was working on a project where the client used an expensive high-performance database cluster in order to do demand forecasting for a German supermarket chain.&lt;/p&gt;
 
@@ -769,7 +769,7 @@ INFO:fbprophet:Disabling daily seasonality. Run prophet with daily_seasonality=T
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/huppertz-consulting/images/sql_visualizer/result.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;img src=&quot;/images/sql_visualizer/result.png&quot; alt=&quot;&quot; /&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -1008,7 +1008,7 @@ INFO:fbprophet:Disabling daily seasonality. Run prophet with daily_seasonality=T
 
 &lt;p&gt;This whole thing is a quick draft that took me about 4-5 hours to write, but it saved me countless hours in debugging.&lt;/p&gt;
 
-&lt;p&gt;This script could also be integrated into a CD/CI-pipeline in order to create a constantly updated visual documentation of the project.&lt;/p&gt;</content><author><name></name></author><summary type="html">A Simple Visualizer for T-SQL scripts</summary></entry><entry><title type="html">Useful Snippets</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html" rel="alternate" type="text/html" title="Useful Snippets" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/useful-snippets.html">&lt;h1 id=&quot;useful-code-snippets&quot;&gt;Useful Code Snippets&lt;/h1&gt;
+&lt;p&gt;This script could also be integrated into a CD/CI-pipeline in order to create a constantly updated visual documentation of the project.&lt;/p&gt;</content><author><name></name></author><summary type="html">A Simple Visualizer for T-SQL scripts</summary></entry><entry><title type="html">Useful Snippets</title><link href="http://blog.huppertz-consulting.de/tooling/python/javascript/2020/05/18/useful-snippets.html" rel="alternate" type="text/html" title="Useful Snippets" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/tooling/python/javascript/2020/05/18/useful-snippets</id><content type="html" xml:base="http://blog.huppertz-consulting.de/tooling/python/javascript/2020/05/18/useful-snippets.html">&lt;h1 id=&quot;useful-code-snippets&quot;&gt;Useful Code Snippets&lt;/h1&gt;
 
 &lt;h2 id=&quot;tensorflow&quot;&gt;TensorFlow&lt;/h2&gt;
 
@@ -1082,7 +1082,7 @@ Fifth part -exec executes a command. In this case rm is the command, {} gets the
 &lt;pre&gt;&lt;code class=&quot;language-cmd&quot;&gt;mklink /H linkname target
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Useful Code Snippets</summary></entry><entry><title type="html">Raspberry Pi - Setup and First Steps</title><link href="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html" rel="alternate" type="text/html" title="Raspberry Pi - Setup and First Steps" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/tooling/python/javascript/2020/05/18/raspi.html">&lt;h1 id=&quot;raspberry-pi&quot;&gt;Raspberry Pi&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Useful Code Snippets</summary></entry><entry><title type="html">Raspberry Pi - Setup and First Steps</title><link href="http://blog.huppertz-consulting.de/tooling/python/javascript/2020/05/18/raspi.html" rel="alternate" type="text/html" title="Raspberry Pi - Setup and First Steps" /><published>2020-05-18T00:00:00-05:00</published><updated>2020-05-18T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/tooling/python/javascript/2020/05/18/raspi</id><content type="html" xml:base="http://blog.huppertz-consulting.de/tooling/python/javascript/2020/05/18/raspi.html">&lt;h1 id=&quot;raspberry-pi&quot;&gt;Raspberry Pi&lt;/h1&gt;
 
 &lt;h2 id=&quot;command-line-configuration&quot;&gt;Command-Line Configuration&lt;/h2&gt;
 
@@ -1222,7 +1222,7 @@ psk=&quot;&lt;Ihr_Passwort&gt;&quot;
 &lt;h2 id=&quot;renaming-the-hostname&quot;&gt;Renaming the hostname&lt;/h2&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/hostname
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Raspberry Pi</summary></entry><entry><title type="html">Fastpages Notebook Blog Post</title><link href="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html" rel="alternate" type="text/html" title="Fastpages Notebook Blog Post" /><published>2020-02-20T00:00:00-06:00</published><updated>2020-02-20T00:00:00-06:00</updated><id>https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/jupyter/2020/02/20/test.html">&lt;!--
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Raspberry Pi</summary></entry><entry><title type="html">Fastpages Notebook Blog Post</title><link href="http://blog.huppertz-consulting.de/jupyter/2020/02/20/test.html" rel="alternate" type="text/html" title="Fastpages Notebook Blog Post" /><published>2020-02-20T00:00:00-06:00</published><updated>2020-02-20T00:00:00-06:00</updated><id>http://blog.huppertz-consulting.de/jupyter/2020/02/20/test</id><content type="html" xml:base="http://blog.huppertz-consulting.de/jupyter/2020/02/20/test.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -1822,7 +1822,7 @@ psk=&quot;&lt;Ihr_Passwort&gt;&quot;
 &lt;/div&gt;
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;&lt;img src=&quot;/huppertz-consulting/images/copied_from_nb/my_icons/fastai_logo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/copied_from_nb/my_icons/fastai_logo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1954,7 +1954,7 @@ And another {% fn 2 %}
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tamahagane.github.io/huppertz-consulting/images/chart-preview.png" /><media:content medium="image" url="https://tamahagane.github.io/huppertz-consulting/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">An Example Markdown Post</title><link href="https://tamahagane.github.io/huppertz-consulting/markdown/2020/01/14/test-markdown-post.html" rel="alternate" type="text/html" title="An Example Markdown Post" /><published>2020-01-14T00:00:00-06:00</published><updated>2020-01-14T00:00:00-06:00</updated><id>https://tamahagane.github.io/huppertz-consulting/markdown/2020/01/14/test-markdown-post</id><content type="html" xml:base="https://tamahagane.github.io/huppertz-consulting/markdown/2020/01/14/test-markdown-post.html">&lt;h1 id=&quot;example-markdown-post&quot;&gt;Example Markdown Post&lt;/h1&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://blog.huppertz-consulting.de/images/chart-preview.png" /><media:content medium="image" url="http://blog.huppertz-consulting.de/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">An Example Markdown Post</title><link href="http://blog.huppertz-consulting.de/markdown/2020/01/14/test-markdown-post.html" rel="alternate" type="text/html" title="An Example Markdown Post" /><published>2020-01-14T00:00:00-06:00</published><updated>2020-01-14T00:00:00-06:00</updated><id>http://blog.huppertz-consulting.de/markdown/2020/01/14/test-markdown-post</id><content type="html" xml:base="http://blog.huppertz-consulting.de/markdown/2020/01/14/test-markdown-post.html">&lt;h1 id=&quot;example-markdown-post&quot;&gt;Example Markdown Post&lt;/h1&gt;
 
 &lt;h2 id=&quot;basic-setup&quot;&gt;Basic setup&lt;/h2&gt;
 
@@ -2008,7 +2008,7 @@ And another {% fn 2 %}
 
 &lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/huppertz-consulting/images/logo.png&quot; alt=&quot;&quot; title=&quot;fast.ai's logo&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/logo.png&quot; alt=&quot;&quot; title=&quot;fast.ai's logo&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
 
