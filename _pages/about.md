@@ -4,10 +4,9 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+My name is Manuel Huppertz and I have a passion for data, maths and building the right tools for the job. On these pages I will take you on a tour through some of the things I created in the last few years and some of my musings and experiments in the data science field.
 
+I work as a freelace consultant and you can hire me if you need an IT project manager, digital marketing specialist or data scientist.  
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+If you want to contact me, check out my [main page](http://huppertz-consulting.de).
