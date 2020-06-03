@@ -1,6 +1,6 @@
 ---
 title: "Creating a tool for manual testing in Django"
-description: "In absence of a proper testing process, we create a Django app to scale out testing to a manual testers."
+description: "In absence of a proper automated testing process, we create a Django app to scale out testing to manual testers."
 layout: post
 toc: false
 comments: false
