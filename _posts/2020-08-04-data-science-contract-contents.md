@@ -15,10 +15,10 @@ When you are facing your first data science project and the accompanying negotia
 
 To manage expectations on the client side, define the deliverables precisely, such as 
 
-- the goal
+- the goal, e.g.
     - identify factors on the website that influence the average shopping cart volume
     - decide if any of the 5 marketing campaigns of last year had a measurable impact on the revenue and if so, how much
-    - analyze if the customer retention measures in the call center are generating positive returns
+    - analyze if the customer retention activities in the call center are generating positive returns
    - ...
 
 
@@ -55,11 +55,13 @@ This is one of the trickiest ones, because part of why you are negotiating a dat
 - ETL processes blocking you from access (my last project DWH was down for one hour after lunch break for ETL)
 - ...
 
-Also, include in your contract a passage that allows you to re-negotiate or get out of the contract after having an in-depth look at the data. Sometimes it turns out the data is not what is was expected to be in quality and/or size and this might make your project completely infeasible.
+Also, include in your contract a passage that allows you to re-negotiate or end the contract prematurely after having an in-depth look at the data. Sometimes it turns out the data is not what is was expected to be in quality and/or size and this might make your project completely infeasible.
 
 ## You will be paid for your time, not the impact of your results
 
-There is no guarantee that you will find any result of substance and economical impact in an exploratory data science project. If you want to explore, e.g.,  which factors influence the shopping cart value of a customer, it is entirely possible that the input data set does not contain any answers to your question. Any impactful factors that you do happen to identify might already be at their optimum or cannot be adjusted for reasons outside of the scope of your analysis. Mention in your contract that you do not owe any specific result and that your compensation is for the time and effort of the process, not the efficacy of your results. 
+There is no guarantee that you will find any result of substance and economical impact in an exploratory data science project. If you want to explore, e.g.,  which factors influence the shopping cart value of a customer, it is entirely possible that the input data set does not contain any answers to your question. Any impactful factors that you do happen to identify might already be at their optimum or cannot be adjusted for reasons outside of the scope of your analysis. Mention in your contract that you do not owe any specific result and that your compensation is for the time and effort of the process, not the efficacy of your results.
+
+Even better: if you have the necessary experience, discuss which possibly courses of action your client can pursue before you start your project. E.g. if your analysis shows that older customers spend more money, can your client run TV and Print ads, if it shows that younger customers spend more, can the client's organization shoulder Instagram marketing or can such expertise be bought. Admitted, that's a bit cliché, but you get the gist. Without any realistic options to act upon your analysis, the whole premise is moot.
 
 ## Do not present preliminary results, avoid presenting your results many times over
 
@@ -76,7 +78,7 @@ While I suggest keeping the C-Level of your client on a "need to know"-basis, I 
 
 ## Hardware provided or BYOD
 
-If your client is providing you with hardware and you don't bring your own device, make sure it's fast and has sufficient RAM. The minimum nowadays should be 16 GB RAM for batch processing of any significant amount of data. Of course the price of RAM is minute compared to the overall budget of the average project and enough RAM to avoid swapping to disk can save you hours if not days over the course of a larger project.
+If your client is providing you with hardware and you don't bring your own device, make sure it's fast and has sufficient RAM. The minimum nowadays should be 16 GB RAM for batch processing of any significant amount of data. Of course the price of RAM is neglegible compared to the overall budget of the average project and enough RAM to avoid swapping to disk can save you hours if not days over the course of a larger project.
 
 ## Third Party Tools
 
@@ -93,6 +95,7 @@ If anyhow possible do not accept any personally identifiable information. You do
 - Define a predetermined breaking point after initial look into the data 
 - Not agreed on any preliminary result meetings
 - Form and content of the final result is defined
+- Possible analysis outcomes and actions to take upon them have been discussed 
 - How many times the results will be presented is defined 
 - Your compensation for your efforts
 - Which hardware will be provided (if applicable)
