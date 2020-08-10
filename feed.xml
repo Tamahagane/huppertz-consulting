@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://blog.huppertz-consulting.de/feed.xml" rel="self" type="application/atom+xml" /><link href="http://blog.huppertz-consulting.de/" rel="alternate" type="text/html" /><updated>2020-08-10T04:19:49-05:00</updated><id>http://blog.huppertz-consulting.de/feed.xml</id><title type="html">Huppertz Consulting Blog</title><subtitle>Challenge. Digital. Business. - Notes on all of them.</subtitle><entry><title type="html">Contents of a Data Science Project Contract</title><link href="http://blog.huppertz-consulting.de/project%20management/2020/08/04/data-science-contract-contents.html" rel="alternate" type="text/html" title="Contents of a Data Science Project Contract" /><published>2020-08-04T00:00:00-05:00</published><updated>2020-08-04T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/project%20management/2020/08/04/data-science-contract-contents</id><content type="html" xml:base="http://blog.huppertz-consulting.de/project%20management/2020/08/04/data-science-contract-contents.html">&lt;p&gt;When you are facing your first data science project and the accompanying negotiation of a project contract, it can be a little bit overwhelming and it’s easy to forget to pen down some important issues.  In this article I will provide a list of some of these issues that should be defined in a data science project contract - and a few things that should not.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://blog.huppertz-consulting.de/feed.xml" rel="self" type="application/atom+xml" /><link href="http://blog.huppertz-consulting.de/" rel="alternate" type="text/html" /><updated>2020-08-10T13:49:24-05:00</updated><id>http://blog.huppertz-consulting.de/feed.xml</id><title type="html">Huppertz Consulting Blog</title><subtitle>Challenge. Digital. Business. - Notes on all of them.</subtitle><entry><title type="html">Contents of a Data Science Project Contract</title><link href="http://blog.huppertz-consulting.de/project%20management/2020/08/04/data-science-contract-contents.html" rel="alternate" type="text/html" title="Contents of a Data Science Project Contract" /><published>2020-08-04T00:00:00-05:00</published><updated>2020-08-04T00:00:00-05:00</updated><id>http://blog.huppertz-consulting.de/project%20management/2020/08/04/data-science-contract-contents</id><content type="html" xml:base="http://blog.huppertz-consulting.de/project%20management/2020/08/04/data-science-contract-contents.html">&lt;p&gt;When you are facing your first data science project and the accompanying negotiation of a project contract, it can be a little bit overwhelming and it’s easy to forget to pen down some important issues.  In this article I will provide a list of some of these issues that should be defined in a data science project contract - and a few things that should not.&lt;/p&gt;
 
 &lt;h2 id=&quot;form-and-content-of-the-result&quot;&gt;Form and Content of the Result&lt;/h2&gt;
 
@@ -2068,7 +2068,7 @@ And another {% fn 2 %}
 
 &lt;h2 id=&quot;basic-formatting&quot;&gt;Basic formatting&lt;/h2&gt;
 
-&lt;p&gt;You can use &lt;em&gt;italics&lt;/em&gt;, &lt;strong&gt;bold&lt;/strong&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;code font text&lt;/code&gt;, and create &lt;a href=&quot;https://www.markdownguide.org/cheat-sheet/&quot;&gt;links&lt;/a&gt;. Here’s a footnote &lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Here’s a horizontal rule:&lt;/p&gt;
+&lt;p&gt;You can use &lt;em&gt;italics&lt;/em&gt;, &lt;strong&gt;bold&lt;/strong&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;code font text&lt;/code&gt;, and create &lt;a href=&quot;https://www.markdownguide.org/cheat-sheet/&quot;&gt;links&lt;/a&gt;. Here’s a footnote &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Here’s a horizontal rule:&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2167,10 +2167,10 @@ wget https://example.com/cat_photo1.png
 
 &lt;h2 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h2&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;</content><author><name></name></author><summary type="html">Example Markdown Post</summary></entry></feed>
