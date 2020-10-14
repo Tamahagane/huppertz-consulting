@@ -179,7 +179,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We will use the well-known iris dataset as basis for our discussion. It is easy enough to still employ some intuition when trying to understand the logistic regression. When loading the dataset from sklearn, we get 150 observations of measurements of some of the plants features. Then botanists have classified the irises into three subtypes with fancy latin names, but since I am no botanist, we will just pretend that - based on those measurements - we can determine if the flower blooms red, green or blue. The measurements will end up in the set of observations $X$, with each observation consisting of 4 measurements each and the classification ends up in the vector $y$ with entries being 0 = red, 1 = green, 2 = blue.</p>
+<p>We will use the well-known iris dataset as basis for our discussion. It is simple enough to still employ some intuition when trying to understand the logistic regression. When loading the dataset from sklearn, we get 150 observations of measurements of some of the plants' features. Then botanists have classified the irises into three subtypes with fancy latin names, but since I am no botanist, we will just pretend that - based on those measurements - we can determine if the flower blooms red, green or blue. The measurements will end up in the set of observations $X$, with each observation consisting of 4 measurements each and the classification ends up in the vector $y$ with entries being 0 = red, 1 = green, 2 = blue.</p>
 
 </div>
 </div>
@@ -422,7 +422,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can clearly see, that measurement 3 carries a lot of information. It separates neatly between the red flowers and the rest, and it even seems to be a good guide to separate the greens from the blues. Same goes for measurement 4, while 1 and 2 seem to give no hint as to which class a certain specimen belongs to.</p>
+<p>We can clearly see that measurement 3 carries a lot of information. It separates neatly between the red flowers and the rest, and it even seems to be a good guide to separate the greens from the blues. Same goes for measurement 4, while 1 and 2 seem to give no (or very little) hint as to which class a certain specimen belongs to.</p>
 
 </div>
 </div>
@@ -446,7 +446,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After having trained the model, the predict function allows us to get a predict for each input tuple. The classes are numbered not named, but can of course be converted to names using the appropriate mapping.</p>
+<p>After having trained the model, the "predict" function allows us to get a prediction for each input tuple. The classes are numbered not named, but can of course be converted to names using the appropriate mapping.</p>
 
 </div>
 </div>
@@ -458,7 +458,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 0 = red, 1 = green, 2 = blue</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -696,7 +697,7 @@ weighted avg       0.96      0.96      0.96       150
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>While the class 0 = red has perfect precision and recall, because classes "1 = green" and "2 = blue" somewhat overlap in their features, the algorithm mixes them up. This is shown by the recall 0.9 of class "1", which means only 90% of all green flowers where classified as green and the precision of class "2" which means only 91% of all flowers classified as blue where actually blue.</p>
+<p>While the class "0 = red" has perfect precision and recall, because classes "1 = green" and "2 = blue" somewhat overlap in their features, the algorithm mixes them up. This is shown by the recall 0.9 of class "1", which means only 90% of all green flowers where classified as green and the precision of class "2" which means only 91% of all flowers classified as blue where actually blue.</p>
 
 </div>
 </div>
@@ -744,7 +745,7 @@ weighted avg       0.96      0.96      0.96       150
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Is it a good model? Well, on one hand, the bare values of our statistics are really quite good, on the other we have a tiny dataset and we trained on the complete dataset as well, as we did not keep a holdout dataset for testing. Since we do not pay too much attention to the actual result of flower's colors being predicted correctly though and only want to understand how to arrive at the predictions,we will give it a pass. Just make a mental note never to do that in a real-world application.</p>
+<p>Is it a good model? Well, on one hand, the bare values of our statistics are really quite good, on the other we have a tiny dataset and we trained on the complete dataset as well, as we did not keep a holdout dataset for testing. Since we do not pay too much attention to the actual result of flower's colors being predicted correctly though and only want to understand how to arrive at the predictions,we will give it a pass. Just make a mental note never to consider that a good result in a real-world application.</p>
 
 </div>
 </div>
@@ -757,7 +758,7 @@ weighted avg       0.96      0.96      0.96       150
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When looking at the variables of the log regression classifier after training, we find three sets of coefficients and three different intercept. That is because log regression is essentially binary, i.e. does only a yes/no or 1/0 classification. If we have $n &gt; 2$ classes in a classification problem, we need split this problem into $n$ separate "1 vs. all" or "1 vs. rest" classification problems. Each set of coefficients and each intercept belongs to a each of these sub-classifications.</p>
+<p>When looking at the variables of the log regression classifier after training, we find three sets of coefficients and three different intercepts. That is because log regression is essentially binary, i.e. does only a yes/no or 1/0 classification. If we have $n &gt; 2$ classes, we need split this problem into $n$ separate "1 vs. rest" classification problems. Each set of coefficients and each intercept belongs to one of these sub-classifications.</p>
 
 </div>
 </div>
@@ -832,7 +833,7 @@ weighted avg       0.96      0.96      0.96       150
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we now feed a set of features $x^i$ into the trained classifier, we can calculate the probabilities of $x^i$ belonging a class vs. not belonging to that class via:</p>
+<p>If we now feed a set of features $x^i$ into the trained classifier, we can calculate the probabilities of $x^i$ belonging to a class vs. not belonging to that class via:</p>
 
 </div>
 </div>
@@ -848,7 +849,7 @@ $$p(x_i)=\frac{1}{1+e^{-(\beta_{0} + \beta_{1}x^{i}_1 + \beta_{2}x^{i}_2 + \beta
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>where $\beta_{0}$ is an intercept and $\beta_{1}..\beta_{4}$ are the coefficients for each entry in the feature vector $x^i = (x^{i}_1,x^{i}_2,x^{i}_3,x^{i}_4)$. We will later explore, why this term is the correct one. Let us calculate the above for our very first observation in the dataset:</p>
+<p>where $\beta_{0}$ is an intercept and $\beta_{1}..\beta_{4}$ are the coefficients for each entry in the feature vector $x^i = (x^{i}_1,x^{i}_2,x^{i}_3,x^{i}_4)$. We will later explore why this term is the correct one. Let us calculate the above for our very first observation in the dataset:</p>
 
 </div>
 </div>
@@ -895,7 +896,7 @@ p_2 = 1.209652515457732e-05
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With this calculation, we have now determined that our $x^0$ has a $0.98$ chance of belonging to class "0 = red" vs. any of the other classes - <em>either</em> green or blue. 
-As we can see though, these three probabilities do not add up to 1 and why should they? These probabilities belong to three mathematically independent problems:</p>
+As we can see though, these three probabilities do not add up to 100% and why should they? These probabilities belong to three mathematically independent problems:</p>
 <ul>
 <li>Does $x^i$ belong to class 0 vs. not to class 0?</li>
 <li>Does $x^i$ belong to class 1 vs. not to class 1?</li>
@@ -1017,7 +1018,7 @@ p_2_scaled = 1.0794924957147882e-05
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we have an understanding how the interpret the data generated by the training process of sklearn and we have looked beyond the <code>clf.predict</code> function to understand how the predictions are then picked in the trained model.</p>
+<p>Now we have an understanding how the interpret the data generated by the training process of sklearn and we have looked beyond the <code>clf.predict</code> function to understand how the predictions are picked in the trained model.</p>
 
 </div>
 </div>
@@ -1102,14 +1103,14 @@ $$ log(Odds) = \beta_{0} + \beta_{1}x^{i}_{1} + \beta_{2}x^{i}_{2} + \beta_{3}x^
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thereby we have created a link between out feature space $x$ and we can map any observation to a probability $ p \in (0,1)$. All we need then is a somewhat arbitrary cutoff rule, usually $&gt;.5$.</p>
+<p>Thereby we have created a link to our feature space $X$ and we can map any observation of features to a probability $ p \in (0,1)$. All we need then is a somewhat arbitrary cutoff rule, usually $p&gt;.5$.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Furthermore, we get interpretability for free: the coefficient $\beta_i$ describes the change in odds, when we increase $x_i$ by one unit. Look again at the spaghetti diagram with the colors above. The greater the value of measurement 3 to smaller the chance we have a red specimen at hand. In fact, the $\beta$ coefficient of measurement 3 in our "red vs. rest" problem is $-2.26$ which means that a unit increase of measurement 3 decreases the odds of the specimen being red by $exp(-2.26) \approx .104$, which is very roughly 1 in 9.5.</p>
+<p>Furthermore, we get interpretability for free: the coefficient $\beta_i$ describes the change in odds when we increase $x_i$ by one unit. Look again at the spaghetti diagram with the colors above. The greater the value of measurement 3 to smaller the chance we have a red specimen at hand. In fact, the $\beta$ coefficient of measurement 3 in our "red vs. rest" problem is $-2.26$ which means that a unit increase of measurement 3 decreases the odds of the specimen being red by $exp(-2.26) \approx .104$, which is very roughly 1 in 9.5.</p>
 
 </div>
 </div>
@@ -1184,9 +1185,9 @@ $$ log(Odds) = \beta_{0} + \beta_{1}x^{i}_{1} + \beta_{2}x^{i}_{2} + \beta_{3}x^
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fitting the parameters is a bit tricky, as we cannot employ a least squares regression as in a linear case. We have to use numerical methods like the maximum likelihood estimation (MLE). Intuitively we want our $\beta$ in such a way, that the linear combinations with $x$ are as far away from the middle of the sigmoid and as to one side for "successes" (usually the positive) and as far to the other for "failures". Success means being a member of a certain class $i$ and failure means a higher probability for any other class.</p>
+<p>Fitting the parameters is a bit tricky, as we cannot employ a least squares regression as in a linear case. We have to use numerical methods like the maximum likelihood estimation (MLE). Intuitively we want our $\beta$ in such a way that the linear combinations with the feature vectors $x$ are as far away from the middle of the sigmoid and as far to one side for "successes" (usually the positive) and as far to the other for "failures". "Success" means being a member of a certain class $i$ and failure means a higher probability for any other class.</p>
 <p>This beta, once we have found it, we will call $\hat\beta$.</p>
-<p>Let's have alook at the sigmoid again and use the parameters for the class $i=0$ from the sklearn logistic regression to distribute our $x$s:</p>
+<p>Let's have a look at the sigmoid again and use the parameters for the class "0 = red"  from the sklearn logistic regression to distribute our $x$s:</p>
 
 </div>
 </div>
@@ -1201,6 +1202,7 @@ $$ log(Odds) = \beta_{0} + \beta_{1}x^{i}_{1} + \beta_{2}x^{i}_{2} + \beta_{3}x^
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
 
 <span class="c1"># this is the result of b_0 + b_1 * x_1 + b_2 * x_2 + ...</span>
+<span class="c1"># clf is still our trained classifier</span>
 <span class="n">log_odds_from_our_dataset</span> <span class="o">=</span> <span class="p">[</span><span class="n">clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span> <span class="o">@</span> <span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;log(Odds)&quot;</span><span class="p">)</span>
@@ -1239,14 +1241,14 @@ $$ log(Odds) = \beta_{0} + \beta_{1}x^{i}_{1} + \beta_{2}x^{i}_{2} + \beta_{3}x^
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see now that all of the red dots, which represent the members of class $i=0$ fall on the right side of 0 (and therefore have $p &gt; .5$), and the other two classes fall on the left side. So, basically, we need to choose $\hat\beta$ in such a way the sigmoid function is as close to zero for some $x$ and as close to 1 for some other $x$. This is a very awkward problem to solve. Luckily, we are working with the interval of $p \in (0,1)$, which means we know that the maximum is 1. So, we can flip those $x$ that are supposed to result in a value of $p$ close to 0 around by calculating $(1-p)$. Now we have a maximization problem for all $x$ in our domain.</p>
+<p>We see now that all of the red dots, which represent the members of class $0$ fall on the right side of 0 (and therefore have $p &gt; .5$), and the other two classes fall on the left side. So, basically, we need to choose $\hat\beta$ in such a way the sigmoid function is as close to zero for some $x$ and as close to 1 for some other $x$. This is a very awkward problem to solve. Luckily, we are working with the interval of $p \in (0,1)$, which means we know that the maximum is 1. So, we can flip those $x$ that are supposed to result in a value of $p$ close to 0 around by calculating $(1-p)$. Now we have a maximization problem for all $x$ in our domain.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Also, a word on the intercept: while $\beta_1 .. \beta_4$ essentially "stretch" our $x$ out in such a way that there is as little overlap between the groups as possible, $\beta_0$ changes the position of the whole set of dots, so that they can be nicely centered around 0. We do actually not need to give special treatment to the intercept, as we can just augment our feature vector $x$ with a static 1 like so $x_i = (1, x^{i}_{1}, x^{i}_{2},x^{i}_{3},x^{i}_{4})$. Using these augmented vectors in the following steps, will simplify things a lot.</p>
+<p>Also, a word on the intercept: while $\beta_1 .. \beta_4$ essentially "stretch" our $x$ out in such a way that there is as little overlap between the groups as possible, $\beta_0$ changes the position of the whole set of dots, so that they can be nicely centered around 0. We do actually not need to give special treatment to the intercept, as we can just augment our feature vector $x$ with a static 1 like so $x^i = (1, x^{i}_{1}, x^{i}_{2},x^{i}_{3},x^{i}_{4})$. Using these augmented vectors in the following steps, will simplify things a lot.</p>
 
 </div>
 </div>
@@ -1315,7 +1317,7 @@ $$ l(\beta) = \prod_{i} p(x_i)^{y_i} (1-p(x_i))^{1-y_i}$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We need to introduce the next concept now - in order to tackle this maximization problem, we use the fact that $log(a)$ is increasing monotonously with $a$ so maximizing $log(a)$ is equivalent to maximizing $a$, therefore:</p>
+<p>We need to introduce the next concept now - in order to tackle this maximization problem, we use the fact that $log(a)$ is increasing monotonically with $a$ so maximizing $log(a)$ is equivalent to maximizing $a$, therefore:</p>
 
 </div>
 </div>
@@ -1339,7 +1341,7 @@ $$ \hat\beta = \arg\max_{\beta} l(\beta)  \iff \hat\beta = \arg\max_{\beta} \log
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ ll(\beta) = \sum_{i} y_i \log(p(x_i)) +  (1-y_i)\log(1-p(x_i))$$
+$$ ll(\beta) = \sum_{i} y_i \log(p(x^i)) +  (1-y_i)\log(1-p(x^i))$$
 </p>
 
 </div>
@@ -1355,7 +1357,7 @@ $$ ll(\beta) = \sum_{i} y_i \log(p(x_i)) +  (1-y_i)\log(1-p(x_i))$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ y_i\log(p(x_i)) = y_i\log\frac{1}{1+e^{-\beta x_i}} =  \color{blue}{-y_i\log(1+e^{-\beta x_i})} $$
+$$ y_i\log(p(x^i)) = y_i\log\frac{1}{1+e^{-\beta x^i}} =  \color{blue}{-y_i\log(1+e^{-\beta x^i})} $$
 </p>
 
 </div>
@@ -1371,7 +1373,7 @@ $$ y_i\log(p(x_i)) = y_i\log\frac{1}{1+e^{-\beta x_i}} =  \color{blue}{-y_i\log(
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ \log(1-p(x_i)) = \log(1-\frac{1}{1+e^{-\beta x_i}}) = \log(\frac{e^{-\beta x_i}}{1+e^{-\beta x_i}})$$
+$$ \log(1-p(x^i)) = \log(1-\frac{1}{1+e^{-\beta x^i}}) = \log(\frac{e^{-\beta x^i}}{1+e^{-\beta x^i}})$$
 </p>
 
 </div>
@@ -1386,7 +1388,7 @@ $$ \log(1-p(x_i)) = \log(1-\frac{1}{1+e^{-\beta x_i}}) = \log(\frac{e^{-\beta x_
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$ 1 \log(\frac{e^{-\beta x_i}}{1+e^{-\beta x_i}}) = \log(\frac{1}{e^{\beta x_i}(1+e^{-\beta x_i})}) = \log(\frac{1}{e^{\beta x_i}+1})  = \color{green}{ -\log(e^{\beta x_i}+1)}  $$<p></p>
+$$ 1 \log(\frac{e^{-\beta x^i}}{1+e^{-\beta x^i}}) = \log(\frac{1}{e^{\beta x^i}(1+e^{-\beta x^i})}) = \log(\frac{1}{e^{\beta x^i}+1})  = \color{green}{ -\log(e^{\beta x^i}+1)}  $$<p></p>
 
 </div>
 </div>
@@ -1401,7 +1403,7 @@ $$ 1 \log(\frac{e^{-\beta x_i}}{1+e^{-\beta x_i}}) = \log(\frac{1}{e^{\beta x_i}
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ -y_i \log(\frac{e^{-\beta x_i}}{1+e^{-\beta x_i}}) = -y_i (\log(e^{-\beta x_i}) - \log(1+e^{-\beta x_i})) $$
+$$ -y_i \log(\frac{e^{-\beta x^i}}{1+e^{-\beta x^i}}) = -y_i (\log(e^{-\beta x^i}) - \log(1+e^{-\beta x^i})) $$
 </p>
 
 </div>
@@ -1410,7 +1412,7 @@ $$ -y_i \log(\frac{e^{-\beta x_i}}{1+e^{-\beta x_i}}) = -y_i (\log(e^{-\beta x_i
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ = \color{green}{ -y_i(-\beta x_i)} \color{blue}{ + y_i \log(1+e^{-\beta x_i})} $$
+$$ = \color{green}{ -y_i(-\beta x^i)} \color{blue}{ + y_i \log(1+e^{-\beta x^i})} $$
 </p>
 
 </div>
@@ -1426,7 +1428,7 @@ $$ = \color{green}{ -y_i(-\beta x_i)} \color{blue}{ + y_i \log(1+e^{-\beta x_i})
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ ll(\beta) = \sum_{i} \color{blue}{-y_i\log(1+e^{-\beta x_i})} \color{green}{ -\log(e^{\beta x_i}+1)}   \color{green}{ -y_i(-\beta x_i)} \color{blue}{ + y_i \log(1+e^{-\beta x_i})} $$
+$$ ll(\beta) = \sum_{i} \color{blue}{-y_i\log(1+e^{-\beta x^i})} \color{green}{ -\log(e^{\beta x^i}+1)}   \color{green}{ -y_i(-\beta x^i)} \color{blue}{ + y_i \log(1+e^{-\beta x^i})} $$
 </p>
 
 </div>
@@ -1435,7 +1437,7 @@ $$ ll(\beta) = \sum_{i} \color{blue}{-y_i\log(1+e^{-\beta x_i})} \color{green}{ 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$ = \sum_{i} y_i\beta x_i-\log(e^{\beta x_i}+1)  $$
+$$ = \sum_{i} y_i\beta x^i-\log(e^{\beta x^i}+1)  $$
 </p>
 
 </div>
@@ -1445,8 +1447,8 @@ $$ = \sum_{i} y_i\beta x_i-\log(e^{\beta x_i}+1)  $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To jog our memory:</p>
 <ul>
-<li>$y_i \in \{1,0\}$, representing that an $x_i$ belongs to a certain class with 1 or not with 0</li>
-<li>$x_i \in \mathbb{R}^5$ with the first element set fixed to $1$, the feature vector of an observation</li>
+<li>$y_i \in \{1,0\}$, representing that an $x^i$ belongs to a certain class with 1 or not with 0</li>
+<li>$x^i \in \mathbb{R}^5$ with the first element set fixed to $1$, the feature vector of an observation</li>
 <li>$\beta \in \mathbb{R}^5$ the vector of coefficients, with the first entry representing the intercept </li>
 </ul>
 
@@ -1710,7 +1712,7 @@ Step: 10000 , beta_hat: [ 0.78059886  0.09592393  2.75367263 -2.91886356 -2.2520
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As a next step, we will replace the brute force method with a numerical optimization method like Gradient Descent or Newton-Raphson. Today, we are going to use the Gradient Descent method. In simple terms, we will move $\beta$ in small steps towards the direction that minimizes our error function, which is the true $y$ minus our calculated result for $y$ under our guess for $\beta$. This direction happens to be the negative gradient. The true $y$ is simply our inpput dataa for $y$.</p>
+<p>As a next step, we will replace the brute force method with a numerical optimization method like Gradient Descent or Newton-Raphson. Today, we are going to use the Gradient Descent method. In simple terms, we will move $\beta$ in small steps towards the direction that minimizes our error function, which is the true $y$ minus our calculated result for $y$ under our guess for $\beta$. This direction happens to be the negative gradient. The true $y$ is simply our input data for $y$.</p>
 
 </div>
 </div>
